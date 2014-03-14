@@ -14,6 +14,8 @@ require_once('altaform-lite.php.inc');
 
 class altaform extends altaformlite {
 	public function __construct() {
+		parent::__construct();
+		
 		global $site;
 
 		$this->SetOption('render', TBS_OUTPUT);

@@ -6,7 +6,7 @@ require_once('_tbs/tbs_class.php');
 
 class altaformlite extends clsTinyButStrong {
 	public function __construct() {
-		global $site;
+		parent::__construct();
 
 		parent::SetOption('render', TBS_OUTPUT);
 		parent::ResetVarRef(true);
@@ -45,16 +45,16 @@ class altaformlite extends clsTinyButStrong {
 
 
 	public function loadString($template) {
-		parent::$Source = $template;
+		$this->Source = $template;
 	}
 
 
 	public function renderToString() {
-		$tmp = parent::$Render;
-		parent::$Render = TBS_NOTHING;
+		$tmp = $this->Render;
+		$this->Render = TBS_NOTHING;
 		$this->Show();
-		parent::$Render = $tmp;
-		return parent::$Source;
+		$this->Render = $tmp;
+		return $this->Source;
 	}
 
 
