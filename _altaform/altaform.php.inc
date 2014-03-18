@@ -1,14 +1,12 @@
 <?php
 
-//PHP Error handling functions
-require_once('error.php.inc');
-
 //Extra string functions
 require_once('string.php.inc');
 
 //Extra time functions
 require_once('time.php.inc');
 
+//Altaform Lite - the basic rendering system
 require_once('altaform-lite.php.inc');
 
 
@@ -595,31 +593,21 @@ class altaform extends altaformlite {
 		}
 
 		
-		$db->begin();
-
-		$db->update('pudl_queue', array(
-			'queue_time'	=> $this->time(),
-			'queue_message'	=> json_encode($data),
-		), array(
-			"`queue_user`='$user[user_id]'",
-			"`queue_service`='$service'",
-			"`queue_type`='$type'",
-		), true);
-
-		if (!$db->updated()) {
-			$db->insert(
-				'pudl_queue',
-				array(
-					'queue_user'	=> $user['user_id'],
-					'queue_time'	=> $this->time(),
-					'queue_service'	=> $service,
-					'queue_type'	=> $type,
-					'queue_message'	=> json_encode($data),
-				), true
-			);
-		}
-
-		$db->commit();
+		$db->insert(
+			'pudl_queue',
+			array(
+				'queue_user'	=> $user['user_id'],
+				'queue_service'	=> $service,
+				'queue_type'	=> $type,
+				'queue_time'	=> $this->time(),
+				'queue_message'	=> json_encode($data),
+			),
+			true,
+			array(
+				'queue_time'	=> $this->time(),
+				'queue_message'	=> json_encode($data),
+			)
+		);
 	}
 
 
