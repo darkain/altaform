@@ -2,7 +2,7 @@
 
 
 function afError($header, $text) {
-	global $url, $site, $db;
+	global $site, $db;
 
 	if (!headers_sent()) header($header);
 
@@ -68,7 +68,7 @@ function error500($text='') {
 function _af_log_error($text, $die=true) {
 	global $site, $af;
 
-	if (is_array($text)) $text = json_encode($text);
+//	if (is_array($text)) $text = json_encode($text);
 
 	if (defined('HHVM_VERSION')) {
 		$site['debug'] = true;
@@ -87,7 +87,12 @@ function _af_log_error($text, $die=true) {
 		} unset($item);
 		$val = json_encode($val);
 	} unset($val);
-	$arr[0] = $text;
+
+	if (is_array($text)) {
+		$arr = array_merge($text, $arr);
+	} else {
+		$arr[0] = $text;
+	}
 
 	$out = print_r($arr, true) . "\n";
 
@@ -117,11 +122,13 @@ function _af_error_handler($errno, $errstr, $errfile=NULL, $errline=NULL, $errco
 	if (!error_reporting()) return false;
 
 	_af_log_error(array(
+		'time'		=> date('r'),
 		'error'		=> $errno,
+		'details'	=> $errstr,
 		'file'		=> $errfile,
 		'line'		=> $errline,
-		'details'	=> $errstr,
-		'url'		=> isset($url['all']) ? isset($url['all']) : '',
+		'url'		=> isset($url['all']) ? $url['all'] : $get->server('REQUEST_URI'),
+		'for'		=> $get->server('HTTP_X_FORWARDED_FOR'),
 		'agent'		=> $get->server('HTTP_USER_AGENT'),
 	));
 
@@ -138,12 +145,14 @@ function _af_log_exception(Exception $e) {
 	if (!error_reporting()) return false;
 
 	_af_log_error(array(
+		'time'		=> date('r'),
 		'error'		=> get_class($e),
+		'details'	=> $e->getMessage(),
 		'file'		=> $e->getFile(),
 		'line'		=> $e->getLine(),
-		'details'	=> $e->getMessage(),
-		'url'		=> isset($url['all']) ? isset($url['all']) : '',
+		'url'		=> isset($url['all']) ? $url['all'] : $get->server('REQUEST_URI'),
 		'agent'		=> $get->server('HTTP_USER_AGENT'),
+		'for'		=> $get->server('HTTP_X_FORWARDED_FOR'),
 	));
 }
 set_exception_handler('_af_log_exception');
@@ -165,10 +174,12 @@ function _pudl_debug($db, $result=false) {
 	global $get, $url;
 
 	_af_log_error(array(
+		'time'		=> date('r'),
 		'error'		=> $db->errno(),
 		'details'	=> $db->error(),
 		'query'		=> ($result !== false) ? ($result->query()) : ($db->query()),
-		'url'		=> isset($url['all']) ? isset($url['all']) : '',
+		'url'		=> isset($url['all']) ? $url['all'] : $get->server('REQUEST_URI'),
 		'agent'		=> $get->server('HTTP_USER_AGENT'),
+		'for'		=> $get->server('HTTP_X_FORWARDED_FOR'),
 	));
 }
