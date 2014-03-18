@@ -102,7 +102,10 @@ function encode_email_address($address) {
 
 ##################################################################################
 
-function is_valid_email_address($email, &$matches=false){
+function is_valid_email_address($email, &$matches=false) {
+	if (empty($email)  ||  !is_string($email)) return false;
+
+
 	####################################################################################
 	#
 	# NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters
