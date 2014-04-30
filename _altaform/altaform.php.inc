@@ -19,12 +19,12 @@ class altaform extends altaformlite {
 		$this->SetOption('render', TBS_OUTPUT);
 		$this->ResetVarRef(true);
 
-		$this->_geoloc	= array();
-		$this->_header	= empty($site['af_header']) ? array() : $site['af_header'];
-		$this->_script	= array();
-		$this->_style	= array();
-		$this->_meta	= array();
-		$this->_prefs   = array();
+		$this->_geoloc	= [];
+		$this->_header	= empty($site['af_header']) ? [] : $site['af_header'];
+		$this->_script	= [];
+		$this->_style	= [];
+		$this->_meta	= [];
+		$this->_prefs   = [];
 		$this->_footer  = 1;
 
 		//Various data types Altaform manages
@@ -51,12 +51,12 @@ class altaform extends altaformlite {
 			$path .= '/';
 		}
 
-		return $path . implode('_', array(
+		return $path . implode('_', [
 			$prefix,
 			$user['user_id'],
 			rand(),
 			microtime(true)
-		)) . $suffix;
+		]) . $suffix;
 	}
 
 
@@ -93,7 +93,7 @@ class altaform extends altaformlite {
 		}
 		
 		if ($replace  ||  empty($this->_header[$key])) {
-			$this->_header[$key] = array($data);
+			$this->_header[$key] = [$data];
 		} else {
 			$this->_header[$key][] = $data;
 		}
@@ -146,17 +146,13 @@ class altaform extends altaformlite {
 
 	//Add a JavaScript file to the html header
 	public function script($path) {
-		$this->_script[] = array(
-			'path' => $path
-		);
+		$this->_script[] = ['path' => $path];
 	}
 
 
 	//Add a Cascading Style Sheet file to the html header
 	public function style($path) {
-		$this->_style[] = array(
-			'path' => $path
-		);
+		$this->_style[] = ['path' => $path];
 	}
 
 
@@ -229,10 +225,10 @@ class altaform extends altaformlite {
 
 		$this->_prefs[$id] = $preferences;
 
-		return $db->replace('pudl_user_preference', array(
+		return $db->replace('pudl_user_preference', [
 			'user_id' => $id,
 			'preference' => json_encode($preferences)
-		), true);		
+		], true);		
 	}
 
 
@@ -258,7 +254,7 @@ class altaform extends altaformlite {
 		$session = $db->safe(empty($session) ? session_id() : $session);
 
 		$user = $db->row(
-			array('us' => _pudl_user(50)),
+			['us' => _pudl_user(50)],
 			"`user_session`='$session'"
 		);
 
@@ -271,10 +267,10 @@ class altaform extends altaformlite {
 			$user['img'] = $this->cdnUrl($user, 'thumb_hash');
 			$user['user_class'] = 'logged-in';
 
-			$user['messages'] = $db->count('pudl_notification', array(
+			$user['messages'] = $db->count('pudl_notification', [
 				"notification_user_to='$user[user_id]'",
 				'notification_read=0'
-			));
+			]);
 		}
 
 		if (empty($user['user_url'])) $user['user_url'] = $user['user_id'];
@@ -419,20 +415,18 @@ class altaform extends altaformlite {
 
 
 	public function geoip($ipaddress=false) {
-		return false; //TODO: RE-ENABLE GEO-IP SERVICES
-		//TODO: SWITCH GEO IP SERVERS TO ITS OWN DEDICATED SERVER
 		if ($ipaddress === false) $ipaddress = $this->ipaddress();
 		if ($ipaddress === false) return false;
 
-		require_once($this->path() . '_geoip/geoipcity.inc');
-		require_once($this->path() . '_geoip/geoipregionvars.php');
+		$ctx = stream_context_create(['http'=>['timeout'=>1]]);
 
-		geoip_load_shared_mem($this->path() . '_geoip/GeoLiteCity.dat');
-		$gi = geoip_open($this->path() . '_geoip/GeoLiteCity.dat', GEOIP_SHARED_MEMORY);
-		$record = geoip_record_by_addr($gi, $ipaddress);
-		geoip_close($gi);
-		
-		return $record;
+		$json = @file_get_contents("http://geo.cospix.net/$ipaddress", 0, $ctx);
+		if (empty($json)) return false;
+
+		$data = @json_decode($json, true);
+		if (empty($data)) return false;
+
+		return $data;
 	}
 
 
@@ -441,41 +435,38 @@ class altaform extends altaformlite {
 
 		//Specific map center requested by URL
 		if (($get->float('lat') !== 0  ||  $get->float('lon') !== 0)  &&  $get->float('zoom') > 0) {
-			return array(
+			return [
 				'lat'	=> $get->float('lat'),
 				'lon'	=> $get->float('lon'),
 				'zoom'	=> $get->float('zoom')
-			);
+			];
 		}
 
 		//User's profile default location
-		if (!empty($user['user_lat'])  ||  !empty($user['user_lat'])) {
-			return array(
+		if (!empty($user['user_lat'])  &&  !empty($user['user_lat'])) {
+			return [
 				'lat'	=> $user['user_lat'],
 				'lon'	=> $user['user_lon'],
 				'zoom'	=> 7
-			);
+			];
 		}
 
-		//Geolocate User - this breaks HHVM right now 2014-02-28
-		//TODO: test this against newer HHVM versions!
-		if (!defined('HHVM_VERSION')) {
-			$geoip = $this->geoip();
-			if ($geoip !== false  &&  (!empty($geoip->latitude) || !empty($geoip->longitude)) ) {
-				return array(
-					'lat'	=> $geoip->latitude,
-					'lon'	=> $geoip->longitude,
-					'zoom'	=> 7
-				);
-			}
+		//Geolocate User
+		$geoip = $this->geoip();
+		if (!empty($geoip['latitude']) && !empty($geoip['longitude'])) {
+			return [
+				'lat'	=> $geoip['latitude'],
+				'lon'	=> $geoip['longitude'],
+				'zoom'	=> 7
+			];
 		}
 
 		//Default: North America
-		return array(
+		return [
 			'lat'	=> 41,
 			'lon'	=> -100,
 			'zoom'	=> 4
-		);
+		];
 	}
 
 
@@ -548,18 +539,18 @@ class altaform extends altaformlite {
 		$id   = (int) $id;
 
 		if (empty($key)) { //get ALL keys
-			return $db->rows('pudl_meta', array(
+			return $db->rows('pudl_meta', [
 				"`meta_type`='$type'",
 				"`meta_object`='$id'",
-			));
+			]);
 		}
 
 		$key = $db->safe($key);
-		return $db->rows('pudl_meta', array(
+		return $db->rows('pudl_meta', [
 			"`meta_type`='$type'",
 			"`meta_object`='$id'",
 			"`meta_key`='$key'",
-		));
+		]);
 	}
 
 
@@ -571,12 +562,12 @@ class altaform extends altaformlite {
 			$type = $this->_types[$type];
 		}
 
-		$db->insert('pudl_meta', array(
+		$db->insert('pudl_meta', [
 			'meta_type'   => (int) $type,
 			'meta_object' => (int) $id,
 			'meta_key'    => $key,
 			'meta_value'  => $value,
-		), true, array('meta_value' => $value));
+		], true, ['meta_value' => $value]);
 	}
 
 
@@ -585,28 +576,31 @@ class altaform extends altaformlite {
 		global $user, $db;
 
 		if (empty($data)) {
-			$db->delete('pudl_queue', array(
+			$db->delete('pudl_queue', [
 				"`queue_user`='$user[user_id]'",
 				"`queue_service`='$service'",
 				"`queue_type`='$type'",
-			));
+			]);
 		}
 
 		
+		//TODO: check to see if this is SQL injection possible
+		//      with json_encode and single-quote characters
 		$db->insert(
 			'pudl_queue',
-			array(
+			[
 				'queue_user'	=> $user['user_id'],
 				'queue_service'	=> $service,
 				'queue_type'	=> $type,
 				'queue_time'	=> $this->time(),
 				'queue_message'	=> json_encode($data),
-			),
+			],
 			true,
-			array(
+			[
 				'queue_time'	=> $this->time(),
 				'queue_message'	=> json_encode($data),
-			)
+				'queue_count'	=> ['INCREMENT'=>1],
+			]
 		);
 	}
 
