@@ -10,7 +10,9 @@ function afError($header, $text) {
 		$text .= htmlspecialchars($db->query());
 	}
 
-	die($text);
+	echo $text;
+	flush();
+	die();
 }
 
 
@@ -63,6 +65,16 @@ function error500($text='') {
 		"<h1>ERROR: 500</h1>\n<h2>INTERNAL SERVER ERROR</h2>\n<i>$text</i>"
 	);
 }
+
+
+
+function assert400($item, $text='') { if (empty($item)) error400($text); }
+function assert401($item, $text='') { if (empty($item)) error401($text); }
+function assert403($item, $text='') { if (empty($item)) error403($text); }
+function assert404($item, $text='') { if (empty($item)) error404($text); }
+function assert500($item, $text='') { if (empty($item)) error500($text); }
+
+
 
 
 function _af_log_error($text, $die=true) {
