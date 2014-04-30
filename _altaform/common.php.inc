@@ -38,7 +38,7 @@ function _pudl_gallery_image($thumbsize) {
 
 
 
-function url_get_contents($url, $post, $followRedirect=true, $failOnError=true) {
+function url_get_contents($url, $post=array(), $followRedirect=true, $failOnError=true) {
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL,				$url);
 	curl_setopt($ch, CURLOPT_AUTOREFERER,		true);
