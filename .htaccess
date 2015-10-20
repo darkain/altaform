@@ -1,0 +1,8 @@
+RewriteEngine	on
+RewriteCond		%{REQUEST_URI}	!^$
+RewriteCond		%{REQUEST_URI}	!^/js/.*
+RewriteCond		%{REQUEST_URI}	!^/css/.*
+RewriteCond		%{REQUEST_URI}	!^/images/.*
+RewriteCond		%{REQUEST_URI}	!^/filestore/.*
+RewriteCond		%{REQUEST_URI}	!^/static/.*
+RewriteRule		.				index.php		[QSA,L]

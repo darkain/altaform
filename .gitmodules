@@ -1,3 +1,15 @@
 [submodule "_pudl"]
 	path = _pudl
-	url = https://github.com/darkain/pudl.git
+	url = git@github.com:darkain/pudl.git
+[submodule "_tbx"]
+	path = _tbx
+	url = git@github.com:darkain/TinyButXtreme.git
+[submodule "_altaform"]
+	path = _altaform
+	url = git@github.com:darkain/altaform-core.git
+[submodule "_getvar"]
+	path = _getvar
+	url = git@github.com:darkain/getvar.git
+[submodule "_closure"]
+	path = _closure
+	url = git@github.com:darkain/closure.git
