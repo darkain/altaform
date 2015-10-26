@@ -4,15 +4,13 @@ popup = function(url, title) {
 	}
 
 	$('#popup-window')
-		.html('')
-		.dialog('option', 'title', title)
-		.dialog('open')
-		.dialog('option', 'buttons', {'Close':function(){$(this).dialog('close');}})
-		.load(url, function(text, status, request){
-			if (status == 'error') {
-				$('#popup-window').html(text);
-			}
-		});
+	.html('<div class="loading"></div>')
+	.dialog('option', 'title', title)
+	.dialog('open')
+	.dialog('option', 'buttons', {'Close':popdown})
+	.load(url, function(text, status, xhr){
+		if (status == 'error') poperror(xhr);
+	});
 };
 
 popdown = function() {
@@ -20,33 +18,53 @@ popdown = function() {
 };
 
 popupdate = function(data) {
+	if (data == 'AF-OK') return popdown();
 	$('#popup-window').html(data);
 };
 
-popup_buttons = function(buttons, append) {
-	if (append) buttons = $.extend({}, buttons, $('#popup-window').dialog('option', 'buttons'));
+popserial = function() {
+	return $('#popup-window').afSerialize();
+}
+
+poppost = function(url, callback) {
+	$.post(url, popserial(), callback?callback:popupdate).fail(poperror);
+}
+
+popbuttons = function(buttons, append) {
+	if (append  ||  arguments.length < 2) {
+		buttons = $.extend(
+			{}, buttons,
+			$('#popup-window').dialog('option', 'buttons')
+		);
+	}
 	$('#popup-window').dialog('option', 'buttons', buttons);
 };
 
-popup_title = function(title, append) {
+poptitle = function(title, append) {
 	if (append) title = $('#popup-window').dialog('option', 'title') + ' - ' + title;
 	$('#popup-window').dialog('option', 'title', title);
+};
+
+poperror = function(xhr, selector){
+	console.log(xhr);
+	selector = selector || '#popup-window';
+	$(selector).html(xhr.responseText);
 };
 
 $(function(){
 	$('#popup-window').dialog({
 		autoOpen:false,
-		buttons:{"Close":popdown},
+		buttons:{'Close':popdown},
 		modal:true,
 		title:'',
-		width:800,
-		height:500,
+		width:900,
+		height:600,
 		minWidth:600,
 		minHeight:350,
-		show: { effect: "fade", duration: 350 },
-		hide: { effect: "fade", duration: 350 },
-		open: function(event, ui) { $("body").css({ overflow: 'hidden' }) },
-		beforeClose: function(event, ui) { $("body").css({ overflow: 'initial' }) },
+		show:	{ effect:'fade', duration:350 },
+		hide:	{ effect:'fade', duration:350 },
+		open:	function(event,ui) { $('html,body').css('overflow','hidden'); },
+		close:	function(event,ui) { $('html,body').css('overflow','initial'); $(this).html(''); }
 	});
 });
 
