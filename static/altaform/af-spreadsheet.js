@@ -72,7 +72,7 @@
 
 			//left
 			} else if (event.which == 37) {
-				if ($(this).prop('nodeName') == 'INPUT') {
+				if ($(this).prop('nodeName') == 'INPUT'  &&  ($(this).attr('type')=='text' || $(this).attr('type')=='password')) {
 					if ($(this)[0].selectionStart == 0  &&  $(this)[0].selectionEnd == 0) {
 						$(this).prevInRow(settings.selector).afSelect(event);
 					}
@@ -82,7 +82,7 @@
 
 			//right
 			} else if (event.which == 39) {
-				if ($(this).prop('nodeName') == 'INPUT') {
+				if ($(this).prop('nodeName') == 'INPUT'  &&  ($(this).attr('type')=='text' || $(this).attr('type')=='password')) {
 					var len = $(this).val().length;
 					if ($(this)[0].selectionStart == len  &&  $(this)[0].selectionEnd == len) {
 						$(this).nextInRow(settings.selector).afSelect(event);
