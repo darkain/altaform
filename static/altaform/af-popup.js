@@ -1,3 +1,10 @@
+var popsettings = {
+	width:		900,
+	height:		600,
+	minWidth:	600,
+	minHeight:	350,
+}
+
 popup = function(url, title) {
 	if (typeof(title)==='object') {
 		title = $('#' + $(title).attr('aria-describedby')).children().html()
@@ -47,25 +54,20 @@ poptitle = function(title, append) {
 
 poperror = function(xhr, selector){
 	console.log(xhr);
-	selector = selector || '#popup-window';
-	$(selector).html(xhr.responseText);
+	$(selector || '#popup-window').html(xhr.responseText);
 };
 
 $(function(){
-	$('#popup-window').dialog({
+	$('#popup-window').dialog($.extend(popsettings, {
 		autoOpen:false,
 		buttons:{'Close':popdown},
 		modal:true,
 		title:'',
-		width:900,
-		height:600,
-		minWidth:600,
-		minHeight:350,
 		show:	{ effect:'fade', duration:350 },
 		hide:	{ effect:'fade', duration:350 },
 		open:	function(event,ui) { $('html,body').css('overflow','hidden'); },
 		close:	function(event,ui) { $('html,body').css('overflow','initial'); $(this).html(''); }
-	});
+	}));
 });
 
 
