@@ -22,7 +22,7 @@ afDropzone = function(form, url, target) {
 			if (file.retry < 3) {
 				afdz.uploadFile(file);
 			} else {
-				console.log(file, mesasge);
+				console.log(file, message);
 				alert('File: ' + file.name + '\n\n' + message);
 				$(file.previewElement).remove();
 			}
