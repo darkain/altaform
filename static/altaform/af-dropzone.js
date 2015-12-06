@@ -1,5 +1,5 @@
 afDropzone = function(form, url, target) {
-	new Dropzone(form, {
+	var afdz = new Dropzone(form, {
 		url: url,
 		thumbnailWidth:200,
 		thumbnailHeight:200,
@@ -17,8 +17,15 @@ afDropzone = function(form, url, target) {
 			$(file.previewElement).remove();
 		},
 		error: function(file, message) {
-			alert('File: ' + file.name + '\n\n' + message);
-			$(file.previewElement).remove();
+			if (file.retry === undefined) file.retry = 0;
+			file.retry++;
+			if (file.retry < 3) {
+				afdz.uploadFile(file);
+			} else {
+				console.log(file, mesasge);
+				alert('File: ' + file.name + '\n\n' + message);
+				$(file.previewElement).remove();
+			}
 		},
 	});
 }
