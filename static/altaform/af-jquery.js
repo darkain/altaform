@@ -29,7 +29,6 @@ $.postSync = function(url, data, success, dataType) {
 
 
 
-//TODO: see if this style sheet is already loaded, and if so, don't load again!
 $.afGetStyles = function(url) {
 	$('<link>')
 		.appendTo($('head'))
@@ -47,8 +46,7 @@ $.afGetScript = function(url, p1, p2) {
 	console.log(p1);
 	return $.ajax($.extend(options || {}, {
 		dataType: 'script',
-		//cache: true,
-		cache: false,
+		cache: true,
 		url: url,
 		success: success,
 	}));
@@ -58,7 +56,7 @@ $.afGetScript = function(url, p1, p2) {
 
 
 $.updateClass = function(name, value) {
-	// we need invisible container to store additional css definitions
+	//WE NEED INVISIBLE CONTAINERS TO STORE ADDITIONAL CSS DEFINITIONS
 	var parent = $('#af-css-container');
 	if (parent.length == 0) {
 		parent = $('<div id="af-css-container"></div>');
@@ -66,21 +64,21 @@ $.updateClass = function(name, value) {
 		parent.appendTo('body');
 	}
 
-	// and we need one div for each class
+	//AND WE NEED ONE DIV FOR EACH CLASS
 	var child = parent.find('div[data-class="' + name + '"]');
 	if (child.length == 0) {
 		child = $('<div data-class="' + name + '"></div>');
 		child.appendTo(parent);
 	}
 
-	// append additional style
+	//APPEND ADDITIONAL STYLE
 	child.html('<style>' + name + ' {' + value + '}</style>');
 }
 
 
 
 
-//Allow for input serialization from non form elements
+//ALLOW FOR INPUT SERIALIZATION FROM NON FORM ELEMENTS
 $.fn.afSerialize = function() {
 	return $(this).find('select, input, textarea, datalist, keygen').serialize();
 };
@@ -183,6 +181,8 @@ $.fn.afClickEdit = function(url, id, callback) {
 
 	return this;
 };
+
+
 
 
 var afResizeBody = false;
