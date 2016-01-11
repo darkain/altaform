@@ -109,6 +109,16 @@ $.fn.afNextInput = function() {
 
 
 
+$.fn.afCombobox = function(options) {
+	$(this).change(function() {
+		$(this).next().find('input').val($(this).children(':selected').text());
+	}).combobox(options);
+	return $(this);
+}
+
+
+
+
 $.fn.afSelectOption = function(value) {
 	var val = value.trim();
 	$(this).each(function(index, item) {
@@ -117,7 +127,7 @@ $.fn.afSelectOption = function(value) {
 			return $(this).text().trim() == val;
 		}).prop('selected', true);
 	});
-	return this;
+	return $(this).change();
 };
 
 
