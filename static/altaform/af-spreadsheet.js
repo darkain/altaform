@@ -1,6 +1,7 @@
 (function($){
 	$.fn.afSelect = function(event) {
 		event.preventDefault();
+		event.stopPropagation();
 		var item = $(this);
 		if (!item.length) return false;
 		item.focus().select();
@@ -55,6 +56,10 @@
 		$(this).addClass('afSpreadsheet');
 
 		$(this).find(settings.selector).keydown(function(event) {
+			var autocomplete = $(this).autocomplete('instance');
+			if (autocomplete) {
+				if ($(this).autocomplete('widget').is(':visible')) return;
+			}
 
 			//enter
 			if (event.which == 13) {
@@ -91,6 +96,10 @@
 					$(this).nextInRow(settings.selector).afSelect(event);
 				}
 
+			}
+		}).on('autocompleteopen', function(event) {
+			if (!$(this).is(':focus')) {
+				$(this).autocomplete('close');
 			}
 		});
 
