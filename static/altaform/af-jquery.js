@@ -109,6 +109,15 @@ $.fn.afNextInput = function() {
 
 
 
+$.fn.afChange = function(param1, param2) {
+	$(this).keypress(function(event) {
+		if (event.which==13) $(this).change().blur();
+	}).change(param1, param2);
+}
+
+
+
+
 $.fn.afCombobox = function(options) {
 	$(this).change(function() {
 		$(this).next().find('input').val($(this).children(':selected').text());
