@@ -85,6 +85,10 @@ code {
 *>div.twidth { width:auto; }
 .tborder td, .tborder th {padding:0.1em 0.3em;}
 
+.table { display:table; }
+.tr { display:table-row; }
+.td { display:table-cell; }
+
 .print-block { display:none }
 .print-inline { display:none }
 .print-inline-block { display:none }
