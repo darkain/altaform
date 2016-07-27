@@ -55,6 +55,8 @@ var af_sidebar_load = function() {
 
 
 var af_sidebar_init = function(path) {
+	if (af_sidebar_path != '') return;
+
 	af_sidebar_path = path;
 	af_sidebar_open = af_storage_read('af_sidebar_open');
 
