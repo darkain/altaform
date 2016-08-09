@@ -7,6 +7,7 @@
 
 <meta name="generator" content="AltaForm" />
 <meta name="rating" content="general" />
+<meta name="robots" content="[robots;magnet=meta]" />
 <meta name="description" content="[var.og.description;magnet=meta;strconv=nobr;noerr]" />
 <meta name="keywords" content="[var.og.keywords;magnet=meta;noerr]" />
 <meta name="viewport" content="[var.og.viewport]" />
