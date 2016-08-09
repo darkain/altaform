@@ -1,0 +1,10 @@
+# AltaForm ignore list
+/_config/
+/_log/
+/cdn/
+/google*
+/bing*
+Thumbs.db
+
+
+# Application ignore list
