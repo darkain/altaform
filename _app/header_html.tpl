@@ -22,6 +22,8 @@
 
 <meta name="[meta.name;att=name;magnet=#;noerr]" property="[meta.property;att=property;magnet=#;noerr]" content="[meta.content;block=meta;strconv=nobr]" />
 
+<script>var urlbase='[var.afurl.base;safe=js]';</script>
+
 <link rel="stylesheet" type="text/css" href="[style.path;block=link]" />
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="[var.afurl.static]/css/altaform.css?0" />
@@ -33,5 +35,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="[var.afurl.static]/js/altaform.js?0"></script>
 <script src="[script.path;block=script]"></script>
+
+<style>[sheet;safe=no;magnet=style]</style>
 
 </head>
