@@ -1,7 +1,9 @@
 # AltaForm ignore list
 /_config/
+!/_config/virtual/
 /_log/
 /cdn/
+/test/
 /google*
 /bing*
 Thumbs.db
