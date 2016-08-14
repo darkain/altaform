@@ -45,11 +45,51 @@ Path | Library | Usage
 
 
 ## Global Variables
-Name | Library | Usage
------|---------|------
-$af | Altaform/TBX | Instance of the [altaform](https://github.com/darkain/altaform-core/blob/master/altaform.php.inc) class, inherits [clsTinyButXtreme](https://github.com/darkain/TinyButXtreme/blob/master/tbx_class.php) class
-$afurl | Altaform | Instance of the [afurl](https://github.com/darkain/altaform-core/blob/master/url.php.inc) class
-$afdevice | Altaform | Instance of the [afdevice](https://github.com/darkain/altaform-core/blob/master/device.php.inc) class
-$user | Altaform | Instance of the [afuser](https://github.com/darkain/altaform-core/blob/master/user.php.inc) class
-$get | GetVar | Instance of [getvar](https://github.com/darkain/getvar/blob/master/getvar.php.inc) class - [Full documentation](https://github.com/darkain/getvar/blob/master/README.md)
-$db | PUDL | Instance of one of the [pudl](https://github.com/darkain/pudl/blob/master/pudl.php) classes (depends on database type) - [Full documentation](https://github.com/darkain/pudl/blob/master/README.md)
+Name | Library | Usage | Documentation
+-----|---------|----------------------
+$af | Altaform Core & TBX | Instance of the [altaform](https://github.com/darkain/altaform-core/blob/master/altaform.php.inc) class, inherits [clsTinyButXtreme](https://github.com/darkain/TinyButXtreme/blob/master/tbx_class.php) class | [Documentation](https://github.com/darkain/altaform-core/blob/master/README.md)
+$afurl | Altaform Core | Instance of the [afurl](https://github.com/darkain/altaform-core/blob/master/url.php.inc) class
+$afdevice | Altaform Core | Instance of the [afdevice](https://github.com/darkain/altaform-core/blob/master/device.php.inc) class
+$user | Altaform Core | Instance of the [afuser](https://github.com/darkain/altaform-core/blob/master/user.php.inc) class
+$get | GetVar | Instance of the [getvar](https://github.com/darkain/getvar/blob/master/getvar.php.inc) class | [Documentation](https://github.com/darkain/getvar/blob/master/README.md)
+$db | PUDL | Instance of one of the [pudl](https://github.com/darkain/pudl/blob/master/pudl.php) classes (depends on database type) | [Documentation](https://github.com/darkain/pudl/blob/master/README.md)
+
+
+
+## Getting Started
+These instructions assume a basic LAMP stack (Linux + Apache + MySQL + PHP),
+however in production we actively have variations of each of these in use.
+Altaform has been tested on Linux, FreeBSD and SmartOS for the operating system,
+Apache, Nginx, and Lighttpd for the web server, MySQL, MariaDB, and SQLite for
+the database, and PHP 5.x, PHP 7, and HHVM for the interpreter. These examples
+listed below have been tested and work with the [TurnKey Linux LAMP appliance](https://www.turnkeylinux.org/lampstack)
+running under VMWare vSphere, but should be the same on any LAMP stack setup
+with **mod_rewrite** enabled and the document root in **/var/www**.
+
+By default, TurnKey LAMP has some problematic modules enabled, and needed
+modules disabled. Our first task is to correct this. Negotiation causes URL
+rewriting conflicts, and rewrite is needed to support a single PHP entry point.
+```
+cd /etc/apache2/mods-enabled/
+rm negotiation.*
+ln -s ../mods-available/rewrite.load
+service apache2 restart
+```
+
+By default, TurnKey LAMP installs a bunch of cruft into /var/www, so we need to
+empty the folder.
+```Bash
+cd /var/www
+rm -R *
+```
+
+Next we need to clone the Altaform code from GitHub.
+```Bash
+git clone git@github.com:darkain/altaform.git .
+```
+
+Now we need to clone all of the sub-modules from GitHub.
+```Bash
+git submodule init
+git submodule update
+```
