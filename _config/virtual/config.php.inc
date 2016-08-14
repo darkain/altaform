@@ -6,17 +6,15 @@ $site['debug']				= false;	//Enable all DEBUG features when true!
 $site['timezone']			= 'UTC';
 
 //CONFIGURATION FOR PUDL (PHP UNIVERSAL DATABASE LIBRARY)
-$site['pudl_server']		= '127.0.0.1';
-$site['pudl_database']		= 'pudl';
-$site['pudl_username']		= 'root';
-$site['pudl_password']		= 'password';
-$site['pudl_prefix']		= 'pudl_';
-//$site['pudl_redis']		= 'redis';
-
-//CONTENT DELIVARY NETWORKS
-$site['cdn']	= '/cdn/';
-$site['static']	= '/static/';
-$site['upload']	= '/upload/';
+/*
+$site['pudl']				=> [
+	'server'				=> '127.0.0.1';
+	'database'				=> 'pudl'
+	'username'				=> 'user'
+	'password'				=> 'password'
+	'prefix'				=> 'pudl_'
+//	'redis'					=> 'local.redis.server'
+];*/
 
 //ALTAFORM API
 //$site['af_secret']		= '';
@@ -31,11 +29,13 @@ $site['upload']	= '/upload/';
 
 //DEFAULT SITE PERMISSIONS
 $site['permission'] = [
-	'banned'				=> 0,
-	'guest'					=> 0,
-	'user'					=> 0,
-	'staff'					=> 0,
-	'admin'					=> 0,
+	'banned'				=> 0, //BANNED FROM THE SITE
+	'guest'					=> 0, //ANONYMOUS USER
+	'user'					=> 0, //LOGGED IN USER
+	'owner'					=> 0, //OWNER OF CURRENTLY VIEWED OBJECT
+	'staff'					=> 0, //SITE STAFF (MODERATOR PRIVILEGES)
+	'admin'					=> 0, //100% FULL ACCESS
+	'debug'					=> 0, //100% FULL ACCESS AND DEBUG ENABLED
 ];
 
 //DEFAULT OPEN GRAPH DATA
