@@ -46,7 +46,7 @@ Path | Library | Usage
 
 ## Global Variables
 Name | Library | Usage | Documentation
------|---------|----------------------
+-----|---------|-------|--------------
 $af | Altaform Core & TBX | Instance of the [altaform](https://github.com/darkain/altaform-core/blob/master/altaform.php.inc) class, inherits [clsTinyButXtreme](https://github.com/darkain/TinyButXtreme/blob/master/tbx_class.php) class | [Documentation](https://github.com/darkain/altaform-core/blob/master/README.md)
 $afurl | Altaform Core | Instance of the [afurl](https://github.com/darkain/altaform-core/blob/master/url.php.inc) class
 $afdevice | Altaform Core | Instance of the [afdevice](https://github.com/darkain/altaform-core/blob/master/device.php.inc) class
