@@ -1,1 +1,1 @@
-Welcome to AltaForm!
+Welcome to Altaform!
