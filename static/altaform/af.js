@@ -9,3 +9,6 @@ isNumber = function(n) { return !isNaN(parseFloat(n)) && isFinite(n); };
 
 //Strip HTML characters
 strip_tags = function(html) { return $(html).text(); };
+
+//Default selected item
+$(function(){ $('.af-default-select').first().focus(); });
