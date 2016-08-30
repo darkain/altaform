@@ -11,4 +11,4 @@ isNumber = function(n) { return !isNaN(parseFloat(n)) && isFinite(n); };
 strip_tags = function(html) { return $(html).text(); };
 
 //Default selected item
-$(function(){ $('.af-default-select').first().focus(); });
+$(function(){ $('.af-default-focus').first().focus(); });

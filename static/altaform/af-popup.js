@@ -18,6 +18,8 @@ popup = function(url, title) {
 	.load(url, function(text, status, xhr){
 		if (status == 'error') poperror(xhr);
 	});
+
+	$('#popup-window .af-default-focus').first().focus();
 };
 
 popdown = function() {
