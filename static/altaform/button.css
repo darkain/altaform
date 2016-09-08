@@ -21,6 +21,29 @@ input[type=reset] {
 	text-shadow:0 0 2px #fff;
 }
 
+button svg,
+.button svg,
+.button:link svg,
+.button:visited svg,
+#popup-window .ui-button svg,
+input[type=submit] svg,
+input[type=button] svg,
+input[type=reset] svg {
+	-webkit-filter: drop-shadow(0px 0px 1px #fff);
+	filter: drop-shadow(0px 0px 1px #fff);
+}
+
+button svg path,
+.button svg path,
+.button:link svg path,
+.button:visited svg path,
+#popup-window .ui-button svg path,
+input[type=submit] svg path,
+input[type=button] svg path,
+input[type=reset] svg path {
+	fill:#777;
+}
+
 
 
 button:hover,
@@ -37,6 +60,36 @@ input[type=reset]:hover {
 	color: #555;
 	outline: none;
 	text-decoration: none;
+}
+
+
+button:hover svg path,
+.button:hover svg path,
+.button:focus svg path,
+.button:active svg path,
+#popup-window .ui-button:hover svg path,
+input[type=submit]:hover svg path,
+input[type=button]:hover svg path,
+input[type=reset]:hover svg path {
+	fill: #555;
+}
+
+
+button:after,
+.button:after,
+#popup-window .ui-button:after,
+input[type=submit]:after,
+input[type=button]:after,
+input[type=reset]:after {
+	clear:both;
+	visibility:hidden;
+	display:none;
+	font-size:0;
+	content:" ";
+	height:0;
+	border:0;
+	padding:0;
+	margin:0;
 }
 
 
@@ -63,11 +116,20 @@ button.ui-state-default {
 	color:#800;
 }
 
+.red.button svg path, .red.button:visited svg path {
+	fill:#800;
+}
+
+
 .red.button:hover {
 	background: #872300;
 	background: linear-gradient(to bottom, #ffcccc 0%,#872300 100%);
 	border-color:#f88;
 	color:#000;
+}
+
+.red.button:hover svg path {
+	fill:#000;
 }
 
 
@@ -78,11 +140,21 @@ button.ui-state-default {
 	color:#800;
 }
 
+
+.yellow.button svg path, .yellow.button:visited svg path {
+	fill:#800;
+}
+
+
 .yellow.button:hover {
 	background: #878700;
 	background: linear-gradient(to bottom, #ffffcc 0%,#878700 100%);
 	border-color:#ff8;
 	color:#000;
+}
+
+.yellow.button:hover svg path {
+	fill:#000;
 }
 
 
@@ -93,11 +165,20 @@ button.ui-state-default {
 	color:#080;
 }
 
+.green.button svg path, .green.button:visited svg path {
+	fill:#080;
+}
+
+
 .green.button:hover {
 	background: #238700;
 	background: linear-gradient(to bottom, #ccffcc 0%,#238700 100%);
 	border-color:#8f8;
 	color:#000;
+}
+
+.green.button:hover svg path {
+	fill:#000;
 }
 
 
@@ -109,11 +190,26 @@ button.ui-state-default {
 	text-shadow:0 0 2px #000;
 }
 
+.blue.button svg, .blue.button:visited svg {
+	-webkit-filter: drop-shadow(0px 0px 1px #000);
+	filter: drop-shadow(0px 0px 1px #000);
+}
+
+.blue.button svg path, .blue.button:visited svg path {
+	fill:#fff;
+}
+
+
 .blue.button:hover {
 	background: #00213d;
 	background: linear-gradient(to bottom, #005fae 0%,#00213d 100%);
 	border-color:#88f;
 	color:#ccf;
 }
+
+.blue.button:hover svg path {
+	fill:#ccf;
+}
+
 
 .blue.button:hover img {opacity:0.8}
