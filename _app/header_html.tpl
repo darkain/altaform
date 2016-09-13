@@ -36,6 +36,6 @@
 <script src="[var.afurl.static]/js/altaform.js?0"></script>
 <script src="[script.path;block=script]"></script>
 
-<style>[sheet;safe=no;magnet=style]</style>
-
+<script>[js;safe=no;magnet=script]</script>
+<style>[css;safe=no;magnet=style]</style>
 </head>
