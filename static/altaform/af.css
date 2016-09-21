@@ -286,3 +286,33 @@ table.af-folder a {
 table.af-folder a:hover {
 	color:#005AA4;
 }
+
+
+/***************************/
+/*     DEBUG UI STYLES     */
+/***************************/
+table.af-debug-backtrace {
+	margin:1em 0;
+	width:100%;
+	background:#fff4f4;
+	color:#000;
+}
+
+table.af-debug-backtrace * {
+	text-decoration:none;
+	font-variant:normal;
+	font-weight:normal;
+	font-style:normal;
+	font-family:"Courier New", Courier, monospace;
+}
+
+table.af-debug-backtrace tr:hover {
+	background:#fcc;
+}
+
+table.af-debug-backtrace td {
+	border:1px solid #fcc;
+	padding:0.3em 0.5em;
+	vertical-align:top;
+	text-align:left;
+}
