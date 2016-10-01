@@ -66,9 +66,10 @@ listed below have been tested and work with the [TurnKey Linux LAMP appliance](h
 running under VMWare vSphere, but should be the same on any LAMP stack setup
 with **mod_rewrite** enabled and the document root in **/var/www**.
 
-By default, TurnKey LAMP has some problematic modules enabled, and needed
-modules disabled. Our first task is to correct this. Negotiation causes URL
-rewriting conflicts, and rewrite is needed to support a single PHP entry point.
+By default, TurnKey LAMP has some problematic modules enabled, and required
+modules disabled. Our first task is to correct these issues. Negotiation causes
+URL rewriting conflicts, and rewrite is needed to support a single PHP entry
+point.
 ```
 cd /etc/apache2/mods-enabled/
 rm negotiation.*
@@ -90,6 +91,5 @@ git clone git@github.com:darkain/altaform.git .
 
 Now we need to clone all of the sub-modules from GitHub.
 ```Bash
-git submodule init
-git submodule update
+_scripts/submodules.sh
 ```
