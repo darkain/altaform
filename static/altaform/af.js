@@ -16,7 +16,7 @@ afSidebar = function(item) {
 }
 
 afEscape = function(item) {
-	return item.replace(/(:|\.|\[|\]|\/|,|=)/g, '\\$1');
+	return item.replace(/(:|\.|\[|\]|\/|\s|,|=)/g, '\\$1');
 }
 
 //Strip HTML characters
