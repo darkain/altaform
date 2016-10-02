@@ -86,7 +86,7 @@ rm -R *
 
 Next we need to clone the Altaform code from GitHub.
 ```Bash
-git clone git@github.com:darkain/altaform.git .
+git clone https://github.com/darkain/altaform.git .
 ```
 
 Now we need to clone all of the sub-modules from GitHub.
