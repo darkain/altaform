@@ -131,7 +131,7 @@ var af_sidebar_init = function(path) {
 	for (var prop in af_sidebar_open) {
 		if (!af_sidebar_open[prop]) continue;
 		prop = prop.replace('menu-', '');
-		var parent = $('#af-sidebar-parent div[data-af-sidebar-menu='+prop+']');
+		var parent = $('#af-sidebar-parent div[data-af-sidebar-menu='+afEscape(prop)+']');
 		parent.addClass('af-sidebar-open');
 		parent.children('span').children('i').css('transform', 'rotate(90deg)');
 		parent.children('div,a,hr').css('display','block');
