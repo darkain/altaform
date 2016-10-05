@@ -296,6 +296,7 @@ table.af-debug-backtrace {
 	width:100%;
 	background:#fff4f4;
 	color:#000;
+	white-space:pre-line;
 }
 
 table.af-debug-backtrace * {
@@ -315,4 +316,8 @@ table.af-debug-backtrace td {
 	padding:0.3em 0.5em;
 	vertical-align:top;
 	text-align:left;
+}
+
+#af-fatal h3 {
+	white-space:pre-line;
 }
