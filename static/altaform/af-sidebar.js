@@ -19,15 +19,6 @@ var af_sidebar_ajax = function(event, url, auto) {
 	url = url.trim();
 	if (url == ''  ||  url == '#') return false;
 
-	//SCROLL TO TOP/LEFT OF DIV
-	$('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
-
-	//PREVENT RECURSION
-	history_block = true;
-
-	//PUSH URL TO HISTORY STATE
-	if (!auto) History.pushState(null, document.title, url);
-
 	//REMOVE OLD HIGHLIGHT FROM SIDEBAR
 	$('.af-sidebar-selected').removeClass('af-sidebar-selected');
 
@@ -35,14 +26,29 @@ var af_sidebar_ajax = function(event, url, auto) {
 	$('#af-sidebar-parent a[href="' + url.replace(af_sidebar_path, '') + '"]')
 		.addClass('af-sidebar-selected');
 
+	//IF THIS IS PAGE LOAD INSTEAD OF CONTENT LOAD, DON'T DO ANYTHING ELSE
+	if (auto) return true;
+
+	//SCROLL TO TOP/LEFT OF DIV
+	 $('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
+
+	//PREVENT RECURSION
+	history_block = true;
+
+	//PUSH URL TO HISTORY STATE
+	History.pushState(null, document.title, url);
+
 	//AJAX REQUEST TO LOAD NEW PAGE
 	af_sidebar_loader = $.ajax({
-		url: url + (url.indexOf('?')==-1?'?':'&') + 'jq=1&sidebar=1',
-		success: function(data) {
+		url:		url,
+		data:		{jq:1, sidebar:1},
+
+		success:	function(data) {
 			$('#af-sidebar-page').html(data);
 			af_sidebar_load();
 		},
-		error: function(xhr) {
+
+		error:		function(xhr) {
 			$('#af-sidebar-page').html(xhr.responseText);
 			af_sidebar_load();
 		},
