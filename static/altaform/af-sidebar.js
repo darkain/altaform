@@ -27,7 +27,7 @@ var af_sidebar_ajax = function(event, url, auto, nopush) {
 		.addClass('af-sidebar-selected');
 
 	//IF THIS IS PAGE LOAD INSTEAD OF CONTENT LOAD, DON'T DO ANYTHING ELSE
-	if (auto) return true;
+	if (auto) return af_sidebar_load();
 
 	//SCROLL TO TOP/LEFT OF DIV
 	 $('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
@@ -72,6 +72,8 @@ var af_sidebar_load = function() {
 			af_sidebar_ajax(event, $(this).prop('href'));
 		});
 	});
+
+	return true;
 };
 
 
