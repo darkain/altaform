@@ -6,7 +6,7 @@ var af_sidebar_path		= '';
 
 
 //PROCESS SIDEBAR LOADING OF PAGE
-var af_sidebar_ajax = function(event, url, auto) {
+var af_sidebar_ajax = function(event, url, auto, nopush) {
 	//PREVENT DEFAULT ACTIONS ON ANCHORS
 	if (event) {
 		if (event.which != 1) return false;
@@ -33,7 +33,7 @@ var af_sidebar_ajax = function(event, url, auto) {
 	 $('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
 
 	//PREVENT RECURSION
-	history_block = true;
+	if (!nopush) history_block = true;
 
 	//PUSH URL TO HISTORY STATE
 	History.pushState(null, document.title, url);
@@ -150,5 +150,5 @@ var af_sidebar_init = function(path) {
 
 
 	//PROCESS INITIAL URL
-	af_sidebar_ajax(false, document.location.pathname, true);
+	af_sidebar_ajax(false, document.location.pathname, true, true);
 };
