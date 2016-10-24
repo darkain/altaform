@@ -12,7 +12,7 @@ afSidebar = function(item) {
 	item = item.trim();
 	$('.cpn-profile-sidebar-selected').removeClass('cpn-profile-sidebar-selected');
 	$('.cpn-profile-sidebar-item:contains("'+item+'")').addClass('cpn-profile-sidebar-selected');
-	afmore();
+	if (typeof afmore === 'function') afmore();
 }
 
 afEscape = function(item) {
