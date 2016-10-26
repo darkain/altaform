@@ -28,6 +28,7 @@ popdown = function() {
 
 popupdate = function(data) {
 	if (data == 'AF-OK') return popdown();
+	if (data == 'AF-REFRESH') return refresh();
 	$('#popup-window').html(data);
 };
 
