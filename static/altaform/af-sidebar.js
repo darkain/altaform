@@ -69,7 +69,7 @@ var af_sidebar_load = function() {
 
 		$(item).addClass('af-sidebar-link').click(function(event) {
 			if ($(this).prop('target')) return;
-			af_sidebar_ajax(event, $(this).prop('href'));
+			af_sidebar_ajax(event, $(this).attr('href'));
 		});
 	});
 
@@ -102,7 +102,8 @@ var af_sidebar_init = function(path) {
 
 	//OVERWRITE ANCHOR CLICK HANDLER
 	$('#af-sidebar-list a').click(function(event){
-		if (!af_sidebar_ajax(event, $(this).prop('href'))) return;
+		if ($(this).attr('target')) return;
+		if (!af_sidebar_ajax(event, $(this).attr('href'))) return;
 		$('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
 	});
 
