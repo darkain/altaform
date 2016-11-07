@@ -11,26 +11,32 @@ popup = function(url, title) {
 	}
 
 	$('#popup-window')
-	.html('<div class="loading"></div>')
-	.dialog('option', 'title', title)
-	.dialog('open')
-	.dialog('option', 'buttons', {'Close':popdown})
-	.load(url, function(text, status, xhr){
-		if (status == 'error') poperror(xhr);
-	});
+		.dialog('option', 'title', title)
+		.dialog('open')
+		.dialog('option', 'buttons', {'Close':popdown});
 
-	$('#popup-window .af-default-focus').first().focus();
+	popload(url);
 };
 
 popdown = function() {
 	$('#popup-window').dialog('close');
 };
 
+popload = function(url) {
+	$('#popup-window').html('<div class="loading"></div>');
+
+	$.get(url, function(data, status, xhr){
+		if (status == 'error') return poperror(xhr);
+		popupdate(data);
+	});
+}
+
 popupdate = function(data) {
 	data = data.trim();
 	if (data == 'AF-OK')		return popdown();
 	if (data == 'AF-REFRESH')	return refresh();
 	$('#popup-window').html(data);
+	$('#popup-window .af-default-focus').first().focus();
 };
 
 popserial = function() {
