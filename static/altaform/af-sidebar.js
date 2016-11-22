@@ -7,6 +7,12 @@ var af_sidebar_path		= '';
 
 //PROCESS SIDEBAR LOADING OF PAGE
 var af_sidebar_ajax = function(event, url, auto, nopush) {
+
+	//IF THIS IS AN EMPTY URL, DO NOTHING
+	if (url == null) return false;
+	url = url.trim();
+	if (!url  ||  url == '#') return false;
+
 	//PREVENT DEFAULT ACTIONS ON ANCHORS
 	if (event) {
 		if (event.which != 1) return false;
@@ -14,10 +20,6 @@ var af_sidebar_ajax = function(event, url, auto, nopush) {
 		event.preventDefault();
 		event.stopPropagation();
 	}
-
-	//IF THIS IS AN EMPTY URL, DO NOTHING
-	url = url.trim();
-	if (url == ''  ||  url == '#') return false;
 
 	//REMOVE OLD HIGHLIGHT FROM SIDEBAR
 	$('.af-sidebar-selected').removeClass('af-sidebar-selected');
