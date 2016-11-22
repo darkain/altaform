@@ -5,7 +5,7 @@ var popsettings = {
 	minHeight:	350,
 }
 
-popup = function(url, title) {
+popup = function(url, title, data) {
 	if (typeof(title)==='object') {
 		title = $('#' + $(title).attr('aria-describedby')).children().html()
 	}
@@ -15,17 +15,20 @@ popup = function(url, title) {
 		.dialog('open')
 		.dialog('option', 'buttons', {'Close':popdown});
 
-	popload(url);
+	popload(url, data);
 };
 
 popdown = function() {
 	$('#popup-window').dialog('close');
 };
 
-popload = function(url) {
+popload = function(url, data) {
 	$('#popup-window').html('<div class="loading"></div>');
 
-	$.get(url, function(data, status, xhr){
+	if (data == null) data = {};
+	data.jq = 1;
+
+	$.get(url, data, function(data, status, xhr){
 		if (status == 'error') return poperror(xhr);
 		popupdate(data);
 	});
