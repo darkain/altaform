@@ -7,7 +7,6 @@ var af_sidebar_path		= '';
 
 //PROCESS SIDEBAR LOADING OF PAGE
 var af_sidebar_ajax = function(event, url, auto, nopush) {
-
 	//IF THIS IS AN EMPTY URL, DO NOTHING
 	if (url == null) return false;
 	url = String(url).trim();
@@ -28,8 +27,8 @@ var af_sidebar_ajax = function(event, url, auto, nopush) {
 	$('#af-sidebar-parent a[href="' + url.replace(af_sidebar_path, '') + '"]')
 		.addClass('af-sidebar-selected');
 
-	//IF THIS IS PAGE LOAD INSTEAD OF CONTENT LOAD, DON'T DO ANYTHING ELSE
-	if (auto) return af_sidebar_load();
+	//SHOULD WE AUTO-LOAD CONTENT, OR JUST PROCESS THE CONTENT WE ALREADY HAVE
+	if (!auto) return af_sidebar_load();
 
 	//SCROLL TO TOP/LEFT OF DIV
 	 $('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
@@ -81,7 +80,7 @@ var af_sidebar_load = function() {
 
 
 //INITIALIZE SIDEBAR - CALLED FROM PAGE'S TEMPLATE
-var af_sidebar_init = function(path) {
+var af_sidebar_init = function(path, auto) {
 	if (af_sidebar_path != '') return;
 
 
@@ -92,13 +91,13 @@ var af_sidebar_init = function(path) {
 
 	//OVERWRITE DEFAULT REFRESH RULE
 	refresh = function() {
-		af_sidebar_ajax(false, document.location, false);
+		af_sidebar_ajax(false, document.location);
 	};
 
 
 	//OVERWRITE DEFAULT REDIRECT RULE
 	redirect = function(url) {
-		af_sidebar_ajax(false, url, false);
+		af_sidebar_ajax(false, url);
 	};
 
 
@@ -155,5 +154,5 @@ var af_sidebar_init = function(path) {
 
 
 	//PROCESS INITIAL URL
-	af_sidebar_ajax(false, document.location.pathname, true, true);
+	af_sidebar_ajax(false, document.location.pathname, auto, true);
 };
