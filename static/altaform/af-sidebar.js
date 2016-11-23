@@ -10,7 +10,7 @@ var af_sidebar_ajax = function(event, url, auto, nopush) {
 
 	//IF THIS IS AN EMPTY URL, DO NOTHING
 	if (url == null) return false;
-	url = url.trim();
+	url = String(url).trim();
 	if (!url  ||  url == '#') return false;
 
 	//PREVENT DEFAULT ACTIONS ON ANCHORS
