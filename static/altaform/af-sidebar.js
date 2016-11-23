@@ -28,7 +28,7 @@ var af_sidebar_ajax = function(event, url, auto, nopush) {
 		.addClass('af-sidebar-selected');
 
 	//SHOULD WE AUTO-LOAD CONTENT, OR JUST PROCESS THE CONTENT WE ALREADY HAVE
-	if (!auto) return af_sidebar_load();
+	if (auto) return af_sidebar_load();
 
 	//SCROLL TO TOP/LEFT OF DIV
 	 $('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
