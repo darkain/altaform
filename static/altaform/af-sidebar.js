@@ -24,14 +24,22 @@ var af_sidebar_ajax = function(event, url, auto, nopush) {
 	$('.af-sidebar-selected').removeClass('af-sidebar-selected');
 
 	//ADD NEW HIGHLIGHT TO SIDEBAR
-	$('#af-sidebar-parent a[href="' + url.replace(af_sidebar_path, '') + '"]')
-		.addClass('af-sidebar-selected');
+	var item = $('#af-sidebar-parent a[href="' + url.replace(af_sidebar_path, '') + '"]');
+	item.addClass('af-sidebar-selected');
+
+	//OPEN SIDEBAR MENUS
+	item = item.parent();
+	while (item && item.length) {
+		if (item.attr('id') === 'af-sidebar-list') break;
+		af_sidebar_expand(item);
+		item = item.parent();
+	}
 
 	//SHOULD WE AUTO-LOAD CONTENT, OR JUST PROCESS THE CONTENT WE ALREADY HAVE
 	if (auto) return af_sidebar_load();
 
 	//SCROLL TO TOP/LEFT OF DIV
-	 $('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
+	$('#af-sidebar-page').html('').scrollTop(0).scrollLeft(0);
 
 	//PREVENT RECURSION
 	if (!nopush) history_block = true;
@@ -76,6 +84,21 @@ var af_sidebar_load = function() {
 
 	return true;
 };
+
+
+
+//EXPAND A MENU ITEM
+var af_sidebar_expand = function(item, collapse) {
+	if (collapse) {
+		item.removeClass('af-sidebar-open');
+		item.children('span').children('i').css('transform', '');
+		item.children('div,a,hr').css('display','none');
+	} else {
+		item.addClass('af-sidebar-open');
+		item.children('span').children('i').css('transform', 'rotate(90deg)');
+		item.children('div,a,hr').css('display','block');
+	}
+}
 
 
 
@@ -141,11 +164,9 @@ var af_sidebar_init = function(path, auto) {
 	//OPEN EACH MENU FROM LOCAL STORAGE INFORMATION
 	for (var prop in af_sidebar_open) {
 		if (!af_sidebar_open[prop]) continue;
-		prop = prop.replace('menu-', '');
-		var parent = $('#af-sidebar-parent div[data-af-sidebar-menu='+afEscape(prop)+']');
-		parent.addClass('af-sidebar-open');
-		parent.children('span').children('i').css('transform', 'rotate(90deg)');
-		parent.children('div,a,hr').css('display','block');
+		af_sidebar_expand($('#af-sidebar-parent div[data-af-sidebar-menu='
+			+ afEscape(prop.replace('menu-', '')) + ']'
+		));
 	}
 
 
