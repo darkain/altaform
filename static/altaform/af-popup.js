@@ -1,3 +1,6 @@
+'use strict';
+
+
 var popsettings = {
 	width:		900,
 	height:		600,
@@ -6,7 +9,7 @@ var popsettings = {
 }
 
 
-popup = function(url, title, data) {
+var popup = function(url, title, data) {
 	if (typeof(title)==='object') {
 		title = $('#' + $(title).attr('aria-describedby')).children().html()
 	}
@@ -20,12 +23,12 @@ popup = function(url, title, data) {
 };
 
 
-popdown = function() {
+var popdown = function() {
 	$('#popup-window').dialog('close');
 };
 
 
-popload = function(url, data) {
+var popload = function(url, data) {
 	$('#popup-window').html('<div class="loading"></div>');
 
 	if (data == null) data = {};
@@ -38,7 +41,7 @@ popload = function(url, data) {
 }
 
 
-popupdate = function(data) {
+var popupdate = function(data) {
 	data = data.trim();
 	if (data == 'AF-OK') return popdown();
 	if (data == 'AF-REFRESH') { popdown(); return refresh() };
@@ -47,17 +50,17 @@ popupdate = function(data) {
 };
 
 
-popserial = function() {
+var popserial = function() {
 	return $('#popup-window').afSerialize();
 }
 
 
-poppost = function(url, callback) {
+var poppost = function(url, callback) {
 	$.post(url, popserial(), callback?callback:popupdate).fail(poperror);
 }
 
 
-popbuttons = function(buttons, append) {
+var popbuttons = function(buttons, append) {
 	if (append  ||  arguments.length < 2) {
 		buttons = $.extend(
 			{}, buttons,
@@ -68,13 +71,13 @@ popbuttons = function(buttons, append) {
 };
 
 
-poptitle = function(title, append) {
+var poptitle = function(title, append) {
 	if (append) title = $('#popup-window').dialog('option', 'title') + ' - ' + title;
 	$('#popup-window').dialog('option', 'title', title);
 };
 
 
-poperror = function(xhr, selector){
+var poperror = function(xhr, selector){
 	console.log(xhr);
 	$(selector || '#popup-window').html(xhr.responseText);
 };

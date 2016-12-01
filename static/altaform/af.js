@@ -1,26 +1,29 @@
+'use strict';
+
+
 //Refresh the current page!
-refresh = function() { location.reload(true); };
+var refresh = function() { location.reload(true); };
 
 //Redirect to new URL
-redirect = function(url) { document.location=url; };
+var redirect = function(url) { document.location=url; };
 
 //Test if a given value is a number
-isNumber = function(n) { return !isNaN(parseFloat(n)) && isFinite(n); };
+var isNumber = function(n) { return !isNaN(parseFloat(n)) && isFinite(n); };
 
 //Select an item from the sidebar
-afSidebar = function(item) {
+var afSidebar = function(item) {
 	item = item.trim();
 	$('.cpn-profile-sidebar-selected').removeClass('cpn-profile-sidebar-selected');
 	$('.cpn-profile-sidebar-item:contains("'+item+'")').addClass('cpn-profile-sidebar-selected');
 	if (typeof afmore === 'function') afmore();
 }
 
-afEscape = function(item) {
+var afEscape = function(item) {
 	return item.replace(/(:|\.|\[|\]|\/|\s|,|=)/g, '\\$1');
 }
 
 //Strip HTML characters
-strip_tags = function(html) { return $(html).text(); };
+var strip_tags = function(html) { return $(html).text(); };
 
 $(function(){afSidebar(document.title.split(' - ')[0]);});
 

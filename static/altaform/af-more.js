@@ -1,4 +1,7 @@
-afmore = function() {
+'use strict';
+
+
+var afmore = function() {
 	$('.cpn-more').each(function(index, item){
 		if ($(item).hasClass('cpn-more-done')) return;
 		$(item).addClass('cpn-more-done');

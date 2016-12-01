@@ -1,3 +1,6 @@
+'use strict';
+
+
 var af_storage_read = function(name) {
 	var data = {};
 	try {

@@ -1,3 +1,6 @@
+'use strict';
+
+
 $(function() {
 	setTimeout(function(){
 		//Goolge Adsense

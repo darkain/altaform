@@ -1,3 +1,6 @@
+'use strict';
+
+
 //SIDEBAR VARIABLES
 var af_sidebar_loader	= false;
 var af_sidebar_open		= {};

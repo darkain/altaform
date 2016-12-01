@@ -1,3 +1,6 @@
+'use strict';
+
+
 (function($){
 	$.fn.afSelect = function(event) {
 		event.preventDefault();

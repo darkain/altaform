@@ -1,5 +1,8 @@
+'use strict';
+
+
 //Test if html5 history support exists or not
-hasHistory = function() { return !!(window.history && window.history.pushState) };
+var hasHistory = function() { return !!(window.history && window.history.pushState) };
 
 //AJAX page changing stuffs
 var history_ready = false;
@@ -7,7 +10,7 @@ var history_block = false;
 var history_location = document.location.toString();
 
 
-function afhistory() {
+var afhistory = function() {
 	History.Adapter.bind(window, 'statechange', function(){
 		if (!hasHistory()) return;
 

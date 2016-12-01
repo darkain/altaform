@@ -1,4 +1,7 @@
-afDropzone = function(form, url, target) {
+'use strict';
+
+
+var afDropzone = function(form, url, target) {
 	var afdz = new Dropzone(form, {
 		url: url,
 		thumbnailWidth:200,

@@ -1,6 +1,7 @@
+'use strict';
 
 
-afWeek = function(date) {
+var afWeek = function(date) {
 	if (typeof date == 'undefined') return undefined;
 	if (typeof date != 'object') date = new Date(date);
 	switch (date.getDay()) {
@@ -15,7 +16,7 @@ afWeek = function(date) {
 }
 
 
-afAmpm = function(date) {
+var afAmpm = function(date) {
 	if (typeof date == 'undefined') return undefined;
 	if (typeof date != 'object') date = new Date(date);
 	var minutes = (date.getMinutes() > 9) ? (date.getMinutes()) : ('0'+date.getMinutes());

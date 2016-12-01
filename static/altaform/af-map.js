@@ -1,3 +1,6 @@
+'use strict';
+
+
 //Google Maps
 
 google.maps.visualRefresh = true;
@@ -17,7 +20,7 @@ var gmapOptions = {
 
 
 
-gmapMarker = function(p1, p2, p3, p4, p5) {
+var gmapMarker = function(p1, p2, p3, p4, p5) {
 	if (!gmap) return false;
 
 	if (typeof(p1) === 'object') {
@@ -57,7 +60,7 @@ gmapMarker = function(p1, p2, p3, p4, p5) {
 		new google.maps.Size(48, 48),
 		new google.maps.Point(0, 0),
 		new google.maps.Point(24, 48)
-	);	
+	);
 
 	item.marker = new google.maps.Marker({
 		map: gmap,
@@ -82,7 +85,7 @@ gmapMarker = function(p1, p2, p3, p4, p5) {
 
 
 
-gmapGeolocate = function(query, url) {
+var gmapGeolocate = function(query, url) {
 	service = new google.maps.places.PlacesService(gmap);
 	service.textSearch({'query': query}, function(results, status) {
 		if (status != google.maps.places.PlacesServiceStatus.OK) return;
@@ -91,5 +94,5 @@ gmapGeolocate = function(query, url) {
 		$.post( url, { 'name':query, 'loc':loc } );
 
 		gmap.setCenter(results[0].geometry.location);
-	});	
+	});
 };
