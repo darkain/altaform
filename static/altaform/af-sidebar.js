@@ -80,7 +80,7 @@ var af_sidebar_load = function() {
 		if ($(item).hasClass('af-sidebar-link')) return;
 
 		$(item).addClass('af-sidebar-link').click(function(event) {
-			if ($(this).prop('target')) return;
+			if ($(this).attr('target')) return;
 			af_sidebar_ajax(event, $(this).attr('href'));
 		});
 	});
