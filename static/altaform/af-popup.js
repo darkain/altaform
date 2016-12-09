@@ -99,7 +99,7 @@ $(function(){
 
 (function($) {
 	$.fn.afpopup = function(url, options) {
-		var that = this;
+		var bg, that = this;
 		$('.afpopup-background').remove();
 		$('body').append(
 			bg = $('<div class="afpopup-background"></div>').click(function(){
