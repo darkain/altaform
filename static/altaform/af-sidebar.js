@@ -168,7 +168,7 @@ var af_sidebar_init = function(path, auto) {
 	for (var prop in af_sidebar_open) {
 		if (!af_sidebar_open[prop]) continue;
 		af_sidebar_expand($('#af-sidebar-parent div[data-af-sidebar-menu='
-			+ afEscape(prop.replace('menu-', '')) + ']'
+			+ prop.replace('menu-', '').escape() + ']'
 		));
 	}
 
