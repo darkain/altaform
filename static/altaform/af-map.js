@@ -41,7 +41,7 @@ var gmapMarker = function(p1, p2, p3, p4, p5) {
 		};
 	} else return false;
 
-	for (vat i=0; i<gmapMarkers.length; ++i) {
+	for (var i=0; i<gmapMarkers.length; ++i) {
 		if (gmapMarkers[i].pos.toString() == item.pos.toString()) {
 			if (item.nfo) {
 				var content = item.nfo.replace(/<ul(.*?)>/,'');
