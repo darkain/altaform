@@ -1,12 +1,12 @@
 'use strict';
 
 
-var afDropzone = function(form, url, target) {
+var afDropzone = function(form, url, target, maxSize) {
 	var afdz = new Dropzone(form, {
 		url: url,
 		thumbnailWidth:200,
 		thumbnailHeight:200,
-		maxFilesize:32,
+		maxFilesize:maxSize || 32,
 		clickable:target,
 		dictDefaultMessage:'',
 		withCredentials:true,
