@@ -31,4 +31,4 @@ var afDropzone = function(form, url, target, maxSize) {
 			}
 		},
 	});
-}
+};

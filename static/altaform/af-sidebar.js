@@ -101,7 +101,7 @@ var af_sidebar_expand = function(item, collapse) {
 		item.children('span').children('i').css('transform', 'rotate(90deg)');
 		item.children('div,a,hr').css('display','block');
 	}
-}
+};
 
 
 

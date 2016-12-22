@@ -13,7 +13,7 @@ var afWeek = function(date) {
 		case 5: return 'Friday';
 		case 6: return 'Saturday';
 	}
-}
+};
 
 
 var afAmpm = function(date) {
@@ -23,4 +23,4 @@ var afAmpm = function(date) {
 	if (date.getHours() == 0) return '12:' + minutes + ' AM';
 	if (date.getHours() > 12) return (date.getHours()-12) + ':' + minutes + ' PM';
 	return date.getHours() + ':' + minutes + ' AM';
-}
+};

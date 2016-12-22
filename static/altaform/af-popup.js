@@ -6,7 +6,7 @@ var popsettings = {
 	height:		600,
 	minWidth:	600,
 	minHeight:	350,
-}
+};
 
 
 var popup = function(url, title, data) {
@@ -38,7 +38,7 @@ var popload = function(url, data) {
 		if (status == 'error') return poperror(xhr);
 		popupdate(data);
 	});
-}
+};
 
 
 var popupdate = function(data) {
@@ -52,12 +52,12 @@ var popupdate = function(data) {
 
 var popserial = function() {
 	return $('#popup-window').afSerialize();
-}
+};
 
 
 var poppost = function(url, callback) {
 	$.post(url, popserial(), callback?callback:popupdate).fail(poperror);
-}
+};
 
 
 var popbuttons = function(buttons, append) {

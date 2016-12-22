@@ -19,6 +19,6 @@ var afmore = function() {
 			}
 		});
 	});
-}
+};
 
 $(afmore);

@@ -24,12 +24,12 @@
 			if (thing.last().length)	return thing.last();
 		}
 		return $([]);
-	}
+	};
 
 
 	$.fn.nextRow = function(selector) {
 		return $(this).prevRow(selector, true);
-	}
+	};
 
 
 	$.fn.prevInRow = function(selector, row) {
@@ -38,7 +38,7 @@
 		var set = $(this).closest(row).find(selector);
 		var index = set.index(this);
 		return set.slice(index-1, index);
-	}
+	};
 
 
 	$.fn.nextInRow = function(selector, row) {
@@ -47,7 +47,7 @@
 		var set = $(this).closest(row).find(selector);
 		var index = set.index(this);
 		return set.slice(index+1, index+2);
-	}
+	};
 
 
 	$.fn.afSpreadsheet = function(options) {

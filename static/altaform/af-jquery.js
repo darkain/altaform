@@ -13,7 +13,7 @@ $.getSync = function(url, data, success, dataType) {
 		dataType: dataType,
 		async: false,
 	});
-}
+};
 
 
 
@@ -27,7 +27,7 @@ $.postSync = function(url, data, success, dataType) {
 		dataType: dataType,
 		async: false,
 	});
-}
+};
 
 
 
@@ -53,7 +53,7 @@ $.afGetScript = function(url, p1, p2) {
 		url: url,
 		success: success,
 	}));
-}
+};
 
 
 
@@ -76,7 +76,7 @@ $.updateClass = function(name, value) {
 
 	//APPEND ADDITIONAL STYLE
 	child.html('<style>' + name + ' {' + value + '}</style>');
-}
+};
 
 
 
@@ -116,7 +116,7 @@ $.fn.afChange = function(param1, param2) {
 	$(this).keypress(function(event) {
 		if (event.which==13) $(this).change().blur();
 	}).change(param1, param2);
-}
+};
 
 
 
@@ -126,7 +126,7 @@ $.fn.afCombobox = function(options) {
 		$(this).next().find('input').val($(this).children(':selected').text());
 	}).combobox(options);
 	return $(this);
-}
+};
 
 
 

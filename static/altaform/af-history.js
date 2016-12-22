@@ -36,4 +36,4 @@ var afhistory = function() {
 
 		if (typeof ga !== 'undefined') ga('send', 'pageview', location.pathname);
 	});
-}
+};

@@ -9,8 +9,8 @@ var af_storage_read = function(name) {
 		if (data == null) data = {};
 	} catch (e) {}
 	return data;
-}
+};
 
 var af_storage_write = function(name, data) {
 	localStorage.setItem(name, JSON.stringify(data));
-}
+};
