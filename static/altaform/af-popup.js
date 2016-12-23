@@ -37,6 +37,8 @@ var popload = function(url, data) {
 	$.get(url, data, function(data, status, xhr){
 		if (status == 'error') return poperror(xhr);
 		popupdate(data);
+	}).fail(function(xhr){
+		poperror(xhr);
 	});
 };
 
