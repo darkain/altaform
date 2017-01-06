@@ -2,38 +2,38 @@
 <html lang="en">
 <head><meta charset="UTF-8" />
 
-<title>[var.title;magnet=title;noerr] - [var.og.title]</title>
-<title>[onshow;block=title;when '[var.title;noerr]'=''][var.og.title]</title>
+<title>[af.title;magnet=title;noerr] - [og.title]</title>
+<title>[onshow;block=title;when '[af.title;noerr]'=''][og.title]</title>
 
 <meta name="generator" content="AltaForm" />
 <meta name="rating" content="general" />
 <meta name="robots" content="[robots;magnet=meta]" />
-<meta name="description" content="[var.og.description;magnet=meta;strconv=nobr;noerr]" />
-<meta name="keywords" content="[var.og.keywords;magnet=meta;noerr]" />
-<meta name="viewport" content="[var.og.viewport]" />
+<meta name="description" content="[og.description;magnet=meta;strconv=nobr;noerr]" />
+<meta name="keywords" content="[og.keywords;magnet=meta;noerr]" />
+<meta name="viewport" content="[og.viewport]" />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content="[var.afurl.all]" />
-<meta property="og:site_name" content="[var.og.title;noerr]" />
-<meta property="og:title" content="[var.title;magnet=meta;noerr] - [var.og.title]" />
-<meta property="og:title" content="[onshow;block=meta;when '[var.title;noerr]'=''][var.og.title]" />
-<meta property="og:image" content="[var.og.image;magnet=meta;noerr]" />
-<meta property="og:description" content="[var.og.description;magnet=meta;strconv=nobr;noerr]" />
+<meta property="og:url" content="[afurl.all]" />
+<meta property="og:site_name" content="[og.title;noerr]" />
+<meta property="og:title" content="[af.title;magnet=meta;noerr] - [og.title]" />
+<meta property="og:title" content="[onshow;block=meta;when '[af.title;noerr]'=''][og.title]" />
+<meta property="og:image" content="[og.image;magnet=meta;noerr]" />
+<meta property="og:description" content="[og.description;magnet=meta;strconv=nobr;noerr]" />
 
 <meta name="[meta.name;att=name;magnet=#;noerr]" property="[meta.property;att=property;magnet=#;noerr]" content="[meta.content;block=meta;strconv=nobr]" />
 
-<script>var urlbase='[var.afurl.base;safe=js]';</script>
+<script>var urlbase='[afurl.base;safe=js]';</script>
 
 <link rel="stylesheet" type="text/css" href="[style.path;block=link]" />
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
-<link rel="stylesheet" type="text/css" href="[var.afurl.static]/css/altaform.css?0" />
+<link rel="stylesheet" type="text/css" href="[afurl.static]/css/altaform.css?0" />
 
-<link rel="shortcut icon" href="[var.afurl.static]/favicon.ico" />
-<link rel="apple-touch-icon" href="[var.afurl.static]/favicon.ico" />
+<link rel="shortcut icon" href="[afurl.static]/favicon.ico" />
+<link rel="apple-touch-icon" href="[afurl.static]/favicon.ico" />
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script src="[var.afurl.static]/js/altaform.js?0"></script>
+<script src="[afurl.static]/js/altaform.js?0"></script>
 <script src="[script.path;block=script]"></script>
 
 <script>[js;safe=no;magnet=script]</script>
