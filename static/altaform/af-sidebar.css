@@ -55,7 +55,8 @@
 
 #af-sidebar-list a,
 #af-sidebar-list span,
-#af-sidebar-list hr {
+#af-sidebar-list hr,
+#af-sidebar-result a {
 	color:#fff;
 	font-size:20px;
 	height:40px;
@@ -100,7 +101,8 @@
 }
 
 #af-sidebar-list a:hover,
-#af-sidebar-list span:hover {
+#af-sidebar-list span:hover,
+#af-sidebar-result a:hover {
 	background:rgba(0,0,0,0.2);
 }
 
