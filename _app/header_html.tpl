@@ -8,7 +8,7 @@
 <meta name="generator" content="AltaForm" />
 <meta name="rating" content="general" />
 <meta name="robots" content="[robots;magnet=meta]" />
-<meta name="description" content="[og.description;magnet=meta;strconv=nobr;noerr]" />
+<meta name="description" content="[og.description;magnet=meta;safe=nobr;noerr]" />
 <meta name="keywords" content="[og.keywords;magnet=meta;noerr]" />
 <meta name="viewport" content="[og.viewport]" />
 
@@ -18,9 +18,9 @@
 <meta property="og:title" content="[af.title;magnet=meta;noerr] - [og.title]" />
 <meta property="og:title" content="[onshow;block=meta;when '[af.title;noerr]'=''][og.title]" />
 <meta property="og:image" content="[og.image;magnet=meta;noerr]" />
-<meta property="og:description" content="[og.description;magnet=meta;strconv=nobr;noerr]" />
+<meta property="og:description" content="[og.description;magnet=meta;safe=nobr;noerr]" />
 
-<meta name="[meta.name;att=name;magnet=#;noerr]" property="[meta.property;att=property;magnet=#;noerr]" content="[meta.content;block=meta;strconv=nobr]" />
+<meta name="[meta.name;att=name;magnet=#;noerr]" property="[meta.property;att=property;magnet=#;noerr]" content="[meta.content;block=meta;safe=nobr]" />
 
 <script>var urlbase='[afurl.base;safe=js]';</script>
 
