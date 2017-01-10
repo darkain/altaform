@@ -14,14 +14,6 @@
 
 @media print { #af-sidebar-parent { display:none; } }
 
-#af-sidebar-parent>div {
-	height:100%;
-	min-height:100%;
-	max-height:100%;
-	margin-bottom:250px;
-	overflow:hidden;
-}
-
 #af-sidebar-list {
 	width:100%;
 	max-height:100%;
@@ -66,8 +58,6 @@
 	padding:0 0 0 10px;
 }
 
-#af-sidebar-list>div { width:250px; }
-
 #af-sidebar-list div div,
 #af-sidebar-list div a,
 #af-sidebar-list div hr {
@@ -90,7 +80,6 @@
 #af-sidebar-list div.af-sidebar-open:nth-child(odd) {
 	background:rgba(0,255,0,0.2);
 }
-
 
 #af-sidebar-list hr {
 	border-color:red;
