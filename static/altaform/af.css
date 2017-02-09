@@ -14,6 +14,8 @@ html, body {
 }
 
 p {text-align:justify;}
+*:focus { outline-color:#00C8E6; }
+
 h1, h2, h3, h4, h5, h6 {font-weight:normal;margin:0;}
 h1 {font-size:3em;line-height:1em;}
 h2 {font-size:2em;line-height:1em;}
@@ -21,8 +23,9 @@ h3 {font-size:1.5em;line-height:1em;}
 h4 {font-size:1.2em;line-height:1.25em;}
 h5 {font-size:1em;font-weight:bold;}
 h6 {font-size:1em;font-weight:bold;}
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
+iframe, img {border:0;}
 hr {height:2px;background:black;color:black;margin:0.5em 2em;clear:both;border:0;}
-iframe {border:0;}
 table {border-spacing:0;border-collapse:collapse;}
 td, th {vertical-align:top;}
 form {padding:0;margin:0;border:0;background:none;}
@@ -35,10 +38,8 @@ article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{dis
 a, a:link, a:visited, a:active {color:#C8E600;text-decoration:none;cursor:pointer}
 a:hover {color:#BB4574}
 a.nodec {text-decoration:none}
-
-img {border:0;}
 a img {text-decoration:none;}
-h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
+
 
 code {
 	white-space:pre;
@@ -89,6 +90,20 @@ code {
 .tr { display:table-row; }
 .td { display:table-cell; }
 
+.no-border, td.no-border, th.no-border { border:none }
+
+.top, tr.top td, tr.top th, table.top td, table.top th, table.tdata td.top, table.tdata th.top {
+	vertical-align:top;
+}
+
+.middle, tr.middle td, tr.middle th, table.middle td, table.middle th, table.tdata td.middle, table.tdata th.middle {
+	vertical-align:middle;
+}
+
+.bottom, tr.bottom td, tr.bottom th, table.bottom td, table.bottom th, table.tdata td.bottom, table.tdata th.bottom {
+	vertical-align:bottom;
+}
+
 .print-block { display:none }
 .print-inline { display:none }
 .print-inline-block { display:none }
@@ -121,19 +136,6 @@ code {
 .warning-bg { background:yellow }
 
 
-.no-border, td.no-border, th.no-border { border:none }
-
-.top, tr.top td, tr.top th, table.top td, table.top th, table.tdata td.top, table.tdata th.top {
-	vertical-align:top;
-}
-
-.middle, tr.middle td, tr.middle th, table.middle td, table.middle th, table.tdata td.middle, table.tdata th.middle {
-	vertical-align:middle;
-}
-
-.bottom, tr.bottom td, tr.bottom th, table.bottom td, table.bottom th, table.tdata td.bottom, table.tdata th.bottom {
-	vertical-align:bottom;
-}
 
 
 
@@ -150,7 +152,7 @@ code {
 	margin:0;
 }
 
-.clear, .clear-left, .clear-right {
+.af-clear, .clear, .clear-left, .clear-right {
 	clear:both;
 	font-size:0;
 	line-height:0;
