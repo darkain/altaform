@@ -137,7 +137,14 @@ code {
 
 
 
-
+#gmap-canvas, #gmap-canvas *,
+#calendar, #calendar *,
+.jush-php, .jush-php *,
+.ui-dialog, .ui-dialog * {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
 
 #popup-window * {
 	-webkit-box-sizing: border-box;
@@ -146,7 +153,7 @@ code {
 }
 
 #popup-window {
-	background:#fff;
+	background:#f8f8f8;
 	border-top:1px solid #ccc;
 	padding:5px;
 	margin:0;
