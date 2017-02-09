@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: [disallow]
 
-Sitemap: [var.afurl.host][var.afurl.base]/sitemapindex.xml
+Sitemap: [afurl.host][afurl.base]/sitemapindex.xml
