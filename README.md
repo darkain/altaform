@@ -40,15 +40,15 @@ Path | Library | Usage
 [_closure](https://github.com/darkain/closure) | Closure | Adds closure support to PHP 5.x
 [_getvar](https://github.com/darkain/getvar) | GetVar | Handler for $_GET/$_POST data
 [_pudl](https://github.com/darkain/pudl) | PHP Universal Database Library (PUDL) | DB connection and SQL query generator/processor
-[_tbx](https://github.com/darkain/TinyButXtreme) | TinyButExtreme | HTML5 template processor
+[_tbx](https://github.com/darkain/TinyButXtreme) | TinyButExtreme (TBX) | HTML5 template processor
 
 
 
 ## Global Variables
 Name | Library | Usage | Documentation
 -----|---------|-------|--------------
-$af | Altaform Core & TBX | Instance of the [altaform](https://github.com/darkain/altaform-core/blob/master/altaform.php.inc) class, inherits [clsTinyButXtreme](https://github.com/darkain/TinyButXtreme/blob/master/tbx_class.php) class | [Documentation](https://github.com/darkain/altaform-core/blob/master/README.md)
-$afurl | Altaform Core | Instance of the [afurl](https://github.com/darkain/altaform-core/blob/master/url.php.inc) class
+$af | Altaform Core & TBX | Instance of the [altaform](https://github.com/darkain/altaform-core/blob/master/altaform.php.inc) class, inherits [tbx](https://github.com/darkain/TinyButXtreme/blob/master/tbx_class.php.inc) class | [Documentation](https://github.com/darkain/altaform-core/blob/master/README.md)
+$afurl | Altaform Core | Instance of the [afurl](https://github.com/darkain/altaform-core/blob/master/af_url.php.inc) class
 $afdevice | Altaform Core | Instance of the [afdevice](https://github.com/darkain/altaform-core/blob/master/device.php.inc) class
 $user | Altaform Core | Instance of the [afuser](https://github.com/darkain/altaform-core/blob/master/user.php.inc) class
 $get | GetVar | Instance of the [getvar](https://github.com/darkain/getvar/blob/master/getvar.php.inc) class | [Documentation](https://github.com/darkain/getvar/blob/master/README.md)
