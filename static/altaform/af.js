@@ -13,6 +13,13 @@ var redirect = function(url) { document.location=url; };
 var isNumber = function(n) { return !isNaN(parseFloat(n)) && isFinite(n); };
 
 
+//Round a number to a given precision
+var afRound = function(number, precision) {
+	var power = Math.pow(10, precision);
+	return Math.round(number * power) / power;
+}
+
+
 //Select an item from the sidebar
 var afSidebar = function(item) {
 	item = String(item).trim();
