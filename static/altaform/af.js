@@ -17,7 +17,7 @@ var isNumber = function(n) { return !isNaN(parseFloat(n)) && isFinite(n); };
 var afRound = function(number, precision) {
 	var power = Math.pow(10, precision);
 	return Math.round(number * power) / power;
-}
+};
 
 
 //Select an item from the sidebar
