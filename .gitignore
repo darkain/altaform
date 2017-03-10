@@ -1,8 +1,9 @@
 # AltaForm ignore list
 /_config/
-!/_config/virtual/
+!/_config/_virtual.php.inc
 /_log/
 /cdn/
+/files/
 /test/
 /google*
 /bing*
