@@ -53,7 +53,7 @@ foreach ($matches as $match) {
 		$item = str_replace(['"',' />'], '', $item);
 		if (substr($item, 0, 2) == '//')	continue;
 		if (substr($item, 0, 4) == 'http')	continue;
-		$item = str_replace('[afurl.static]', $static, $item);
+		$item = str_replace('[afurl.static]/', $static, $item);
 
 		$text = (new Minify\CSS($item))->minify();
 		if (empty($text)) continue;
@@ -63,10 +63,12 @@ foreach ($matches as $match) {
 	}
 }
 
+$out = trim($out);
 
-file_put_contents($static.'css/altaform.css', trim($out));
+file_put_contents($static.'css/altaform.css', $out);
+file_put_contents($static.'css/altaform.css.gz', gzencode($out,9));
 
-$md5 = md5_file($static.'css/altaform.css');
+$md5 = md5($out);
 echo $static.'css/altaform.css - ' . $md5 . "\n";
 
 $af->setting('af.hash.css',	$md5);
@@ -87,7 +89,7 @@ foreach ($matches as $match) {
 		$item = str_replace('"', '', $item);
 		if (substr($item, 0, 2) == '//')	continue;
 		if (substr($item, 0, 4) == 'http')	continue;
-		$item = str_replace('[afurl.static]', $static, $item);
+		$item = str_replace('[afurl.static]/', $static, $item);
 		$text = @file_get_contents($item);
 		if ($text === false) error500('Cannot open file: ' . $item);
 
@@ -113,10 +115,12 @@ foreach ($matches as $match) {
 	}
 }
 
+$out = trim($out);
 
-file_put_contents($static.'js/altaform.js', trim($out));
+file_put_contents($static.'js/altaform.js', $out);
+file_put_contents($static.'js/altaform.js.gz', gzencode($out,9));
 
-$md5 = md5_file($static.'js/altaform.js');
+$md5 = md5($out);
 echo $static.'js/altaform.js - ' . $md5 . "\n";
 
 $af->setting('af.hash.js', $md5);
