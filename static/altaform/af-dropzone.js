@@ -2,23 +2,28 @@
 
 
 var afDropzone = function(form, url, target, maxSize) {
+	if ($(form).hasClass('dz-default')) return;
+
 	var afdz = new Dropzone(form, {
-		url: url,
-		thumbnailWidth:200,
-		thumbnailHeight:200,
-		maxFilesize:maxSize || 32,
-		clickable:target,
-		dictDefaultMessage:'',
-		withCredentials:true,
+		url:				url,
+		thumbnailWidth:		200,
+		thumbnailHeight:	200,
+		maxFilesize:		maxSize || 32,
+		clickable:			target,
+		dictDefaultMessage:	'',
+		withCredentials:	true,
+
 		init: function() {
 			this.on('addedfile', function(file){
 				$(file.previewElement).insertAfter(target);
 			});
 		},
+
 		success: function(file, text) {
 			$(text).insertAfter( $(file.previewElement) );
 			$(file.previewElement).remove();
 		},
+
 		error: function(file, message) {
 			if (file.retry === undefined) file.retry = 0;
 			file.retry++;
