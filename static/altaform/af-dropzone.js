@@ -2,10 +2,10 @@
 
 
 var afDropzone = function(form, url, target, maxSize) {
-	$(form).each(function(idx, item) {
-		if ($(item).element.dropzone) return;
+	$(form).each(function() {
+		if ($(this).get().dropzone) return;
 
-		var afdz = new Dropzone(item, {
+		var afdz = new Dropzone(this, {
 			url:				url,
 			thumbnailWidth:		200,
 			thumbnailHeight:	200,
