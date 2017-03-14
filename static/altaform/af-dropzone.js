@@ -3,7 +3,7 @@
 
 var afDropzone = function(form, url, target, maxSize) {
 	$(form).each(function() {
-		if ($(this).get().dropzone) return;
+		if (this.dropzone) return;
 
 		var afdz = new Dropzone(this, {
 			url:				url,
