@@ -53,7 +53,7 @@ var popupdate = function(data) {
 
 
 var popserial = function() {
-	return $('#popup-window').afSerialize();
+	return $('#popup-window').afSerialize() + '&jq=1';
 };
 
 
