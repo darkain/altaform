@@ -125,11 +125,23 @@ $(function(){
 				$(that).html('').dialog('destroy');
 			}
 		}, options));
-	}
-})(jQuery);
+	};
 
 
-(function($) {
+	$.fn.afpoppost = function(url) {
+		var post = url;
+		$(this).click(function(){
+			var data = popserial();
+			var name = $(this).attr('name');
+			if (name) {
+				data += '&' + encodeURIComponent(name);
+				data += '=' + encodeURIComponent($(this).val());
+			}
+			$.post(post, data, popupdate).fail(poperror);
+		});
+	};
+
+
 	$.afnotice = function(text, title) {
 		$('#af-notice')
 		.text(text)
@@ -147,5 +159,5 @@ $(function(){
 				}
 			}]
 		});
-	}
+	};
 })(jQuery);
