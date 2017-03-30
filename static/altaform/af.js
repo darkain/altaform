@@ -9,6 +9,10 @@ var refresh = function() { document.location.reload(true); };
 var redirect = function(url) { document.location=url; };
 
 
+//Open URL in a new tab
+var newtab = function(url) { window.open(url, '_blank'); };
+
+
 //Test if a given value is a number
 var isNumber = function(n) { return !isNaN(parseFloat(n)) && isFinite(n); };
 
