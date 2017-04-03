@@ -10,6 +10,8 @@ var popsettings = {
 
 
 var popup = function(url, title, data) {
+	if (!jQuery.ui) return;
+
 	if (typeof(title)==='object') {
 		title = $('#' + $(title).attr('aria-describedby')).children().html()
 	}
@@ -24,6 +26,7 @@ var popup = function(url, title, data) {
 
 
 var popdown = function() {
+	if (!jQuery.ui) return;
 	$('#popup-window').dialog('close');
 };
 
@@ -63,6 +66,8 @@ var poppost = function(url, callback) {
 
 
 var popbuttons = function(buttons, append) {
+	if (!jQuery.ui) return;
+
 	if (append  ||  arguments.length < 2) {
 		buttons = $.extend(
 			{}, buttons,
@@ -74,6 +79,7 @@ var popbuttons = function(buttons, append) {
 
 
 var poptitle = function(title, append) {
+	if (!jQuery.ui) return;
 	if (append) title = $('#popup-window').dialog('option', 'title') + ' - ' + title;
 	$('#popup-window').dialog('option', 'title', title);
 };
@@ -86,6 +92,8 @@ var poperror = function(xhr, selector){
 
 
 $(function(){
+	if (!jQuery.ui) return;
+
 	$('#popup-window').dialog($.extend(popsettings, {
 		autoOpen:false,
 		buttons:{'Close':popdown},
@@ -100,6 +108,8 @@ $(function(){
 
 
 (function($) {
+	if (!jQuery.ui) return;
+
 	$.fn.afpopup = function(url, options) {
 		var bg, that = this;
 		$('.afpopup-background').remove();
