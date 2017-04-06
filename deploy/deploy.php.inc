@@ -34,7 +34,7 @@ $af->contentType('txt');
 ////////////////////////////////////////////////////////////////////////////////
 //PULL THE BRANCH AND SUBMODULES
 ////////////////////////////////////////////////////////////////////////////////
-chdir( $af->config->github['path'] );
+chdir($af->config->github['path']);
 
 $commands = [
 	'pwd',
@@ -47,7 +47,7 @@ $commands = [
 	'git submodule status',
 ];
 
-foreach($commands AS $command){
+foreach ($commands as $command) {
 	echo '> ' . $command . "\n";
 	echo rtrim(shell_exec($command . ' 2>&1')) . "\n\n";
 }
