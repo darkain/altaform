@@ -1,0 +1,20 @@
+Each submodule contains their own documentation. Please refer to each on their
+specific implementations for how to use them. The Altaform-Core submodule
+contains the specific information on Altaform as a whole, including this
+project. Please refer to the following URLs for more details
+
+
+Altaform-Core
+https://github.com/darkain/altaform-core/blob/master/README.md
+
+
+PHP Universal Database Library (PUDL)
+https://github.com/darkain/pudl/blob/master/README.md
+
+
+Getvar
+https://github.com/darkain/getvar/blob/master/README.md
+
+
+TinyButExtreme (TBX)
+https://github.com/darkain/TinyButXtreme/blob/master/README.md
