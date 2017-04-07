@@ -3,7 +3,7 @@
 
 //BASIC CONFIGURATION FOR WEB SERVER
 $afconfig([
-	'root'			= '_app',
+	'root'			=> '_app',
 
 
 	/*
