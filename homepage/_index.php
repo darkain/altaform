@@ -2,4 +2,4 @@
 
 $title = 'Home';
 
-$af->renderPage('index.tpl');
+$af->renderPage('_index.tpl');
