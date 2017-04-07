@@ -1,15 +1,27 @@
-[submodule "_pudl"]
-	path = _pudl
-	url = https://github.com/darkain/pudl.git
-[submodule "_tbx"]
-	path = _tbx
-	url = https://github.com/darkain/TinyButXtreme.git
 [submodule "_altaform"]
 	path = _altaform
 	url = https://github.com/darkain/altaform-core.git
-[submodule "_getvar"]
-	path = _getvar
-	url = https://github.com/darkain/getvar.git
+
 [submodule "_closure"]
 	path = _closure
 	url = https://github.com/darkain/closure.git
+
+[submodule "_getvar"]
+	path = _getvar
+	url = https://github.com/darkain/getvar.git
+
+[submodule "_pudl"]
+	path = _pudl
+	url = https://github.com/darkain/pudl.git
+
+[submodule "_tbx"]
+	path = _tbx
+	url = https://github.com/darkain/TinyButXtreme.git
+
+[submodule "_minify"]
+	path = _minify
+	url = https://github.com/matthiasmullie/minify.git
+
+[submodule "_pathconvert"]
+	path = _pathconvert
+	url = https://github.com/matthiasmullie/path-converter.git
