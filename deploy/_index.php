@@ -110,9 +110,10 @@ if (empty($afconfig->instances)) {
 
 	foreach ($afconfig->instances as $instance) {
 		$token		= afstring::password(32);
+		$message	= implode('-', [$af->time(), $token]);
 
 		$data		= $afurl->post('https://'.$instance.'/deploy/pull', [
-			'hash'	=> hash($algo, $af->time().$token.$afconfig->afkey()),
+			'hash'	=> hash_hmac($algo, $message, $afconfig->afkey()),
 			'time'	=> $af->time(),
 			'algo'	=> $algo,
 			'token'	=> $token,

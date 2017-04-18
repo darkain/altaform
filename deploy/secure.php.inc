@@ -61,7 +61,9 @@ assert422(
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY HASH MATCHES
 ////////////////////////////////////////////////////////////////////////////////
+$message = implode('-', [$af->time(), $token]);
+
 assert422(
-	hash($algo, $time.$token.$afconfig->afkey()) === $hash,
+	hash_hmac($algo, $message, $afconfig->afkey()) === $hash,
 	'Invalid token for request. Possible hacking attempt!'
 );
