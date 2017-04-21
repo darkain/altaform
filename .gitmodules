@@ -2,10 +2,6 @@
 	path = _altaform
 	url = https://github.com/darkain/altaform-core.git
 
-[submodule "_closure"]
-	path = _closure
-	url = https://github.com/darkain/closure.git
-
 [submodule "_getvar"]
 	path = _getvar
 	url = https://github.com/darkain/getvar.git
