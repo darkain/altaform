@@ -13,7 +13,7 @@ var afDropzone = function(form, url, target, maxSize, thumbSize) {
 			clickable:			target,
 			dictDefaultMessage:	'',
 			withCredentials:	true,
-			acceptedFiles:		'image/jpeg,image/png,image/gif',
+			acceptedFiles:		'image/*',
 
 			init: function() {
 				this.on('addedfile', function(file){
