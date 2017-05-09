@@ -5,14 +5,6 @@ html, body {
 	color:#4D4E4C;
 }
 
-* {
-	-webkit-text-size-adjust:none;
-	-moz-text-size-adjust:none;
-	-ms-text-size-adjust:none;
-	-o-text-size-adjust:none;
-	text-size-adjust:none;
-}
-
 p {text-align:justify;}
 *:focus { outline-color:#00C8E6; }
 
