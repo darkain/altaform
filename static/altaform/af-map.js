@@ -12,10 +12,6 @@ var gmapOptions = {
 	zoom: 4,
 	mapTypeId: google.maps.MapTypeId.ROADMAP,
 	center: new google.maps.LatLng(41, -100),
-	styles: [
-		{"stylers":[{"hue":"#00C8E6"}, {"lightness":63}, {"gamma":0.17}]},
-		{"featureType":"water", "stylers":[{"color":"#00C8E6"}]}
-	],
 };
 
 
