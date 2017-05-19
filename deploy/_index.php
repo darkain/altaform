@@ -72,7 +72,7 @@ if (!empty($af->config->github['strength'])) {
 //VERIFY HASH
 ////////////////////////////////////////////////////////////////////////////////
 assert422(
-	$hash === hash_hmac($algo, $get(), $af->config->github['secret']),
+	hash_equals(hash_hmac($algo, $get(), $af->config->github['secret']), $hash),
 	'Input security validation failed'
 );
 
