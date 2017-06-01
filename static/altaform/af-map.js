@@ -82,7 +82,7 @@ var gmapMarker = function(p1, p2, p3, p4, p5) {
 
 
 var gmapGeolocate = function(query, url) {
-	service = new google.maps.places.PlacesService(gmap);
+	var service = new google.maps.places.PlacesService(gmap);
 	service.textSearch({'query': query}, function(results, status) {
 		if (status != google.maps.places.PlacesServiceStatus.OK) return;
 
