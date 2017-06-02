@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 $time	= $db->time();
 $root	= $af->path() . $af->config->root;
-$static	= $af->path() . 'static/';  //TODO: MAKE THIS INTO A VARIABLE!
+$static	= $af->staticPath();
 
 
 
