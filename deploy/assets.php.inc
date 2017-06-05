@@ -51,9 +51,8 @@ $out = "/* DO NOT EDIT DIRECTLY, THIS FILE IS AUTO-GENERATED */\n\n";
 foreach ($matches as $match) {
 	foreach ($match as $item) {
 		$item = str_replace(['"',' />'], '', $item);
-		if (substr($item, 0, 2) == '//')	continue;
-		if (substr($item, 0, 4) == 'http')	continue;
-		$item = str_replace('[afurl.static]/', $static, $item);
+		if (substr($item, 0, 15) !== '[afurl.static]/') continue;
+		$item = $static . substr($item, 15);
 
 		$text = (new Minify\CSS($item))->minify();
 		if (empty($text)) continue;
@@ -87,9 +86,8 @@ $out = "/* DO NOT EDIT DIRECTLY, THIS FILE IS AUTO-GENERATED */\n'use strict';\n
 foreach ($matches as $match) {
 	foreach ($match as $item) {
 		$item = str_replace('"', '', $item);
-		if (substr($item, 0, 2) == '//')	continue;
-		if (substr($item, 0, 4) == 'http')	continue;
-		$item = str_replace('[afurl.static]/', $static, $item);
+		if (substr($item, 0, 15) !== '[afurl.static]/') continue;
+		$item = $static . substr($item, 15);
 		$text = @file_get_contents($item);
 		if ($text === false) error500('Cannot open file: ' . $item);
 
