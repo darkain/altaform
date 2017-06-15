@@ -68,12 +68,16 @@ var poppost = function(url, callback) {
 var popbuttons = function(buttons, append) {
 	if (!jQuery.ui) return;
 
-	if (append  ||  arguments.length < 2) {
+	if (buttons === 'reset') {
+		buttons	= {'Close':popdown};
+
+	} else if (append  ||  arguments.length < 2) {
 		buttons = $.extend(
 			{}, buttons,
 			$('#popup-window').dialog('option', 'buttons')
 		);
 	}
+
 	$('#popup-window').dialog('option', 'buttons', buttons);
 };
 
@@ -96,7 +100,6 @@ $(function(){
 
 	$('#popup-window').dialog($.extend(popsettings, {
 		autoOpen:false,
-		buttons:{'Close':popdown},
 		modal:true,
 		title:'',
 		show:	{ effect:'fade', duration:350 },
@@ -104,6 +107,8 @@ $(function(){
 		open:	function(event,ui) { $('html,body').css('overflow','hidden'); },
 		close:	function(event,ui) { $('html,body').css('overflow','initial'); $(this).html(''); }
 	}));
+
+	popbuttons('reset');
 });
 
 
