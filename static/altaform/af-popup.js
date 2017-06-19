@@ -9,14 +9,24 @@ var popsettings = {
 };
 
 
+var popselect = function(selector) {
+	return $(selector || '#popup-window');
+}
+
+
+var ispopup = function(selector) {
+	return popselect().hasClass('ui-dialog-content');
+};
+
+
 var popup = function(url, title, data) {
-	if (!jQuery.ui) return;
+	if (!ispopup()) return;
 
 	if (typeof(title)==='object') {
 		title = $('#' + $(title).attr('aria-describedby')).children().html()
 	}
 
-	$('#popup-window')
+	popselect()
 		.dialog('option', 'title', title)
 		.dialog('open')
 		.dialog('option', 'buttons', {'Close':popdown});
@@ -26,13 +36,13 @@ var popup = function(url, title, data) {
 
 
 var popdown = function() {
-	if (!jQuery.ui) return;
-	$('#popup-window').dialog('close');
+	if (!ispopup()) return;
+	popselect().dialog('close');
 };
 
 
 var popload = function(url, data) {
-	$('#popup-window').html('<div class="loading"></div>');
+	popselect().html('<div class="loading"></div>');
 
 	if (data == null) data = {};
 	data.jq = 1;
@@ -50,13 +60,13 @@ var popupdate = function(data) {
 	data = data.trim();
 	if (data == 'AF-OK') return popdown();
 	if (data == 'AF-REFRESH') { popdown(); return refresh() };
-	$('#popup-window').html(data);
-	$('#popup-window .af-default-focus').first().focus();
+	popselect().html(data);
+	popselect().find('.af-default-focus').first().focus();
 };
 
 
 var popserial = function() {
-	return $('#popup-window').afSerialize() + '&jq=1';
+	return popselect().afSerialize() + '&jq=1';
 };
 
 
@@ -66,7 +76,7 @@ var poppost = function(url, callback) {
 
 
 var popbuttons = function(buttons, append) {
-	if (!jQuery.ui) return;
+	if (!ispopup()) return;
 
 	if (buttons === 'reset') {
 		buttons	= {'Close':popdown};
@@ -74,31 +84,35 @@ var popbuttons = function(buttons, append) {
 	} else if (append  ||  arguments.length < 2) {
 		buttons = $.extend(
 			{}, buttons,
-			$('#popup-window').dialog('option', 'buttons')
+			popselect().dialog('option', 'buttons')
 		);
 	}
 
-	$('#popup-window').dialog('option', 'buttons', buttons);
+	popselect().dialog('option', 'buttons', buttons);
 };
 
 
 var poptitle = function(title, append) {
 	if (!jQuery.ui) return;
-	if (append) title = $('#popup-window').dialog('option', 'title') + ' - ' + title;
-	$('#popup-window').dialog('option', 'title', title);
+
+	if (append) {
+		title = popselect().dialog('option', 'title') + ' - ' + title;
+	}
+
+	popselect().dialog('option', 'title', title);
 };
 
 
 var poperror = function(xhr, selector){
 	console.log(xhr);
-	$(selector || '#popup-window').html(xhr.responseText);
+	popselect(selector).html(xhr.responseText);
 };
 
 
 $(function(){
 	if (!jQuery.ui) return;
 
-	$('#popup-window').dialog($.extend(popsettings, {
+	popselect().dialog($.extend(popsettings, {
 		autoOpen:false,
 		modal:true,
 		title:'',
@@ -113,11 +127,11 @@ $(function(){
 
 
 (function($) {
-	if (!jQuery.ui) return;
-
 	$.fn.afpopup = function(url, options) {
 		var bg, that = this;
+
 		$('.afpopup-background').remove();
+
 		$('body').append(
 			bg = $('<div class="afpopup-background"></div>').click(function(){
 				$(that).dialog('close')
