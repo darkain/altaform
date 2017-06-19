@@ -23,7 +23,7 @@ var popup = function(url, title, data) {
 	if (!ispopup()) return;
 
 	if (typeof(title)==='object') {
-		title = $('#' + $(title).attr('aria-describedby')).children().html()
+		title = $('#' + $(title).attr('aria-describedby')).children().html();
 	}
 
 	popselect()
