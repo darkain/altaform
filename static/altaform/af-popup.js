@@ -11,7 +11,7 @@ var popsettings = {
 
 var popselect = function(selector) {
 	return $(selector || '#popup-window');
-}
+};
 
 
 var ispopup = function(selector) {
