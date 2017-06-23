@@ -39,6 +39,8 @@ chdir($af->config->github['path']);
 $commands = [
 	'pwd',
 	'whoami',
+	'which git',
+	'git version',
 	'git stash',
 	'git pull origin ' . $af->config->github['branch'],
 	'git status',
