@@ -37,6 +37,7 @@ $af->contentType('txt');
 chdir($af->config->github['path']);
 
 $commands = [
+	'uname -norsm',
 	'pwd',
 	'whoami',
 	'which git',
