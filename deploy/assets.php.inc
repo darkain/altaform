@@ -88,6 +88,10 @@ foreach ($matches as $match) {
 		$item = str_replace('"', '', $item);
 		if (substr($item, 0, 15) !== '[afurl.static]/') continue;
 		$item = $static . substr($item, 15);
+
+		if (strpos($item, 'jquery-ui.min.js') !== false) continue;
+		if (preg_match('/jquery-\d\.\d\.\d\.min\.js/', $item)) continue;
+
 		$text = @file_get_contents($item);
 		if ($text === false) error500('Cannot open file: ' . $item);
 
