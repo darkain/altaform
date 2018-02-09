@@ -5,7 +5,7 @@
 //MANUAL GET REQUEST FROM ADMIN, ALLOW IT
 ////////////////////////////////////////////////////////////////////////////////
 if ($get('token') === '') {
-	$user->requireAdmin();
+	if (!$af->cli()) $user->requireAdmin();
 	return;
 }
 
