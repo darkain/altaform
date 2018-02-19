@@ -8,6 +8,8 @@ var popsettings = {
 	minHeight:	350,
 };
 
+var popurl = '';
+
 
 var popselect = function(selector) {
 	return $(selector || '#popup-window');
@@ -47,6 +49,8 @@ var popload = function(url, data) {
 	if (data == null) data = {};
 	data.jq = 1;
 
+	popurl = url;
+
 	$.post(url, data, function(data, status, xhr){
 		if (status == 'error') return poperror(xhr);
 		popupdate(data);
@@ -56,9 +60,15 @@ var popload = function(url, data) {
 };
 
 
+var popreload = function() {
+	popload(popurl);
+};
+
+
 var popupdate = function(data) {
 	data = data.trim();
 	if (data == 'AF-OK') return popdown();
+	if (data == 'AF-RELOAD') return popreload() ;
 	if (data == 'AF-REFRESH') { popdown(); return refresh() };
 	popselect().html(data);
 	popselect().find('.af-default-focus').first().focus();
