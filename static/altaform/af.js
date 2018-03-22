@@ -6,7 +6,7 @@ var refresh = function() { document.location.reload(true); };
 
 
 //Redirect to new URL
-var redirect = function(url) { document.location=url; };
+var redirect = function(url) { document.location.href = url; };
 
 
 //Open URL in a new tab

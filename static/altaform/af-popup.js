@@ -67,9 +67,13 @@ var popreload = function() {
 
 var popupdate = function(data) {
 	data = data.trim();
-	if (data == 'AF-OK') return popdown();
-	if (data == 'AF-RELOAD') return popreload() ;
-	if (data == 'AF-REFRESH') { popdown(); return refresh() };
+	switch (data.split('\n', 1)[0].trim()) {
+		case 'AF-OK':		return popdown();
+		case 'AF-LOAD':		return popload(data.split('\n', 2)[1].trim());
+		case 'AF-RELOAD':	return popreload();
+		case 'AF-REFRESH':	popdown(); return refresh();
+		case 'AF-REDIRECT':	popdown(); return redirect(data.split('\n', 2)[1].trim());
+	}
 	popselect().html(data);
 	popselect().find('.af-default-focus').first().focus();
 };
