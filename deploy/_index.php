@@ -109,17 +109,18 @@ if (empty($afconfig->instances)) {
 						: 'sha1';
 
 	foreach ($afconfig->instances as $instance) {
+		$url		= 'https://' . $instance . '/deploy/pull';
 		$token		= afstring::password(32);
 		$message	= implode('-', [$af->time(), $token]);
 
-		$data		= $afurl->post('https://'.$instance.'/deploy/pull', [
+		$data		= $afurl->post($url, [
 			'hash'	=> hash_hmac($algo, $message, $afconfig->afkey()),
 			'time'	=> $af->time(),
 			'algo'	=> $algo,
 			'token'	=> $token,
 		]);
 
-		echo $instance . "\n\n" . $data['content'] . "\n\n\n";
+		echo $url . "\n\n" . $data['content'] . "\n\n\n";
 	}
 }
 
