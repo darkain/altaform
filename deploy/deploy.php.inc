@@ -54,6 +54,7 @@ $commands = [
 	'git pull origin ' . $af->config->github['branch'],
 	'git status',
 	'git submodule init',
+	'git submodule sync',
 	'git submodule update',
 	'git submodule status',
 ];
