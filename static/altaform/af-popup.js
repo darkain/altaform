@@ -117,9 +117,9 @@ var poptitle = function(title, append) {
 };
 
 
-var poperror = function(xhr, selector){
+var poperror = function(xhr) {
 	console.log(xhr);
-	popselect(selector).html(xhr.responseText);
+	popselect().html(xhr.responseText);
 };
 
 
