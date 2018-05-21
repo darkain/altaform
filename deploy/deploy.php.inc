@@ -53,8 +53,8 @@ $commands = [
 	'git stash',
 	'git pull origin ' . $af->config->github['branch'],
 	'git status',
-	'git submodule init',
-	'git submodule update',
+	'git submodule sync',
+	'git submodule update --force --remote',
 	'git submodule status',
 ];
 
