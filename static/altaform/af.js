@@ -1,6 +1,10 @@
 'use strict';
 
 
+//Fix for broken web browsers (LOOKING AT YOU, SAMSUNG)
+Object.prototype.ToString = function () { return this.toString(); };
+
+
 //Refresh the current page!
 var refresh = function() { document.location.reload(true); };
 
