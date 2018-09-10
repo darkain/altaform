@@ -1,4 +1,4 @@
 <?php
 
 if (!$af->debug()) error404();
-if (!$af->cli()) $user->requireAdmin();
+if (!$afCli()) $user->requireAdmin();
