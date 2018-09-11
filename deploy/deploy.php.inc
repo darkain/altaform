@@ -60,5 +60,5 @@ $commands = [
 
 foreach ($commands as $command) {
 	echo '> ' . $command . "\n";
-	echo rtrim(shell_exec($command . ' 2>&1')) . "\n\n";
+	echo rtrim((string)shell_exec($command . ' 2>&1')) . "\n\n";
 }
