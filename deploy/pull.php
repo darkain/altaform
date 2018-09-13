@@ -1,4 +1,4 @@
 <?php
-require('secure.php.inc');
-require('deploy.php.inc');
-require('assets.php.inc');
+require('secure.inc.php');
+require('deploy.inc.php');
+require('assets.inc.php');

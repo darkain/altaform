@@ -94,8 +94,8 @@ if ($get('ref') !== 'refs/heads/'.$af->config->github['branch']) {
 //SINGLE INSTANCE - PULL THE LATEST CODE FROM GIT AND COMPILE ASSETS
 ////////////////////////////////////////////////////////////////////////////////
 if (empty($afconfig->instances)) {
-	require('deploy.php.inc');
-	require('assets.php.inc');
+	require('deploy.inc.php');
+	require('assets.inc.php');
 
 
 

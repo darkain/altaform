@@ -1,3 +1,3 @@
 <?php
-require('secure.php.inc');
-require('deploy.php.inc');
+require('secure.inc.php');
+require('deploy.inc.php');

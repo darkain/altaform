@@ -1,7 +1,7 @@
 <?php
 
 
-require('secure.php.inc');
+require('secure.inc.php');
 
 
 $commands = [
