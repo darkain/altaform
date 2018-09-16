@@ -40,7 +40,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-<script src="[afurl.static]/jquery/history.min.js"></script>
 <script src="[afurl.static]/altaform/af.js"></script>
 <script src="[afurl.static]/altaform/af-droplist.js"></script>
 <script src="[afurl.static]/altaform/af-history.js"></script>
