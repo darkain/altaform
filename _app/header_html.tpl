@@ -37,5 +37,5 @@
 <script src="[script.path;block=script]"></script>
 
 <script>[js;safe=javascript;magnet=script]</script>
-<style>[css;safe=no;magnet=style]</style>
+<style>[css;safe=css;magnet=style]</style>
 </head>
