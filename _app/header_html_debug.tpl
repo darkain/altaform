@@ -20,7 +20,7 @@
 <meta property="og:image" content="[og.image;magnet=meta;noerr]" />
 <meta property="og:description" content="[og.description;magnet=meta;safe=nobr;noerr]" />
 
-<meta name="[meta.name;att=name;magnet=#;noerr]" property="[meta.property;att=property;magnet=#;noerr]" content="[meta.content;block=meta;safe=nobr]" />
+<meta name="[meta.name;magnet=#]" property="[meta.property;magnet=#]" content="[meta.content;block=meta;safe=nobr]" />
 
 <script>var urlbase='[afurl.base;safe=js]';</script>
 
