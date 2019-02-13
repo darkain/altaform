@@ -109,11 +109,11 @@ main Altaform code base. The current test application is a persistent IRC
 client. There will be more applications available with the Altaform Daemon
 support as development continues.
 
-Altaform Daemon mode can be thought of similarly to JavaScript language with
+Altaform Daemon mode can be thought of similarly to the JavaScript language with
 Node.js as the core application, but instead with PHP as the language and
 the Altaform Daemon as the application layer. PHP executes the Altaform Daemon,
 the Altaform Daemon provides a simple event loop handler, and internal processes
-run with non-blocking I/O to enable the event loop handler to continue to run.
+run with non-blocking I/O to enable the event loop handler to run continuously.
 
 ## Simply Status Pages
 
