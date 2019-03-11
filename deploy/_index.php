@@ -5,7 +5,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY WE HAVE A SECRET SET
 ////////////////////////////////////////////////////////////////////////////////
-assert500(
+assertStatus(500,
 	!empty($af->config->github['secret']),
 	'No GitHub secret has been defined - $afconfig["github"]["secret"]'
 );
@@ -16,7 +16,7 @@ assert500(
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY WE HAVE A BRANCH SELECTED
 ////////////////////////////////////////////////////////////////////////////////
-assert500(
+assertStatus(500,
 	!empty($af->config->github['branch']),
 	'No GitHub branch has been defined - $afconfig["github"]["branch"]'
 );
@@ -27,7 +27,7 @@ assert500(
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY WE HAVE A LOCAL PATH SELECTED
 ////////////////////////////////////////////////////////////////////////////////
-assert500(
+assertStatus(500,
 	!empty($af->config->github['path']),
 	'No local git repository path specified - $afconfig["github"]["path"]'
 );
@@ -47,7 +47,7 @@ list($algo, $hash)	= explode('=', $get->server('HTTP_X_HUB_SIGNATURE'), 2)
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY WE CAN TEST THIS PARTICULAR ALGO
 ////////////////////////////////////////////////////////////////////////////////
-assert500(
+assertStatus(500,
 	in_array($algo, hash_algos(), true),
 	'Algorithm not supported: ' . $algo
 );
@@ -59,7 +59,7 @@ assert500(
 //VERIFY MINIMUM HASH COMPLEXITY
 ////////////////////////////////////////////////////////////////////////////////
 if (!empty($af->config->github['strength'])) {
-	assert500(
+	assertStatus(500,
 		strlen(hash($algo, '')) * 4  >=  $af->config->github['strength'],
 		'Hash Algorithm does not meet minimum security strength requirements'
 	);
@@ -71,7 +71,7 @@ if (!empty($af->config->github['strength'])) {
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY HASH
 ////////////////////////////////////////////////////////////////////////////////
-assert422(
+assertStatus(422,
 	hash_equals(hash_hmac($algo, $get(), $af->config->github['secret']), $hash),
 	'Input security validation failed'
 );
@@ -110,7 +110,7 @@ if (empty($afconfig->instances)) {
 
 	foreach ($afconfig->instances as $instance) {
 		$url		= 'https://' . $instance . '/deploy/pull';
-		$token		= afstring::password(32);
+		$token		= afString::password(32);
 		$message	= implode('-', [$af->time(), $token]);
 
 		$data		= $afurl->post($url, [

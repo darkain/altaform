@@ -23,11 +23,13 @@ $af->contentType('txt');
 //INCLUDE ALL THE THINGS!!
 ////////////////////////////////////////////////////////////////////////////////
 use MatthiasMullie\Minify;
+use Leafo\ScssPhp\Compiler;
 require_once('_pathconvert/src/ConverterInterface.php');
 require_once('_pathconvert/src/Converter.php');
 require_once('_minify/src/Minify.php');
 require_once('_minify/src/CSS.php');
 require_once('_minify/src/JS.php');
+require_once('_scss/scss.inc.php');
 
 
 
@@ -43,8 +45,8 @@ $data = file_get_contents($root.'/header_html_debug.tpl');
 ////////////////////////////////////////////////////////////////////////////////
 //MINIFY CSS STYLESHEET FILES
 ////////////////////////////////////////////////////////////////////////////////
-$matches = array();
-preg_match_all('/"[^"]*\\.css" \/>/i', $data, $matches);
+$matches = [];
+preg_match_all('/"[^"]*\\.s?css" \/>/i', $data, $matches);
 
 $out = "/* DO NOT EDIT DIRECTLY, THIS FILE IS AUTO-GENERATED */\n\n";
 
@@ -54,7 +56,14 @@ foreach ($matches as $match) {
 		if (substr($item, 0, 15) !== '[afurl.static]/') continue;
 		$item = $static . substr($item, 15);
 
-		$text = (new Minify\CSS($item))->minify();
+		$text = @file_get_contents($item);
+		if ($text === false) httpError(500, 'Cannot open file: ' . $item);
+
+		if (substr($item, -5) === '.scss') {
+			$text = (new Compiler)->compile($text);
+		}
+
+		$text = (new Minify\CSS($text))->minify();
 		if (empty($text)) continue;
 
 		$item = str_replace($static, '', $item);
@@ -70,7 +79,7 @@ file_put_contents($static.'css/altaform.css.gz', gzencode($out,9));
 $md5 = md5($out);
 echo $static.'css/altaform.css - ' . $md5 . "\n";
 
-$af->setting('af.hash.css',	$md5);
+$af->setting('af.hash.css', $md5);
 
 
 
@@ -78,7 +87,7 @@ $af->setting('af.hash.css',	$md5);
 ////////////////////////////////////////////////////////////////////////////////
 //MINIFY JAVASCRIPT FILES
 ////////////////////////////////////////////////////////////////////////////////
-$matches = array();
+$matches = [];
 preg_match_all('/"[^"]*\\.js"/i', $data, $matches);
 
 $out = "/* DO NOT EDIT DIRECTLY, THIS FILE IS AUTO-GENERATED */\n'use strict';\n\n";
@@ -93,7 +102,7 @@ foreach ($matches as $match) {
 		if (preg_match('/jquery-\d\.\d\.\d\.min\.js/', $item)) continue;
 
 		$text = @file_get_contents($item);
-		if ($text === false) error500('Cannot open file: ' . $item);
+		if ($text === false) httpError(500, 'Cannot open file: ' . $item);
 
 		$line = preg_split('/\n|\r/', trim($text));
 		if (trim($line[0]) === "'use strict';") {
