@@ -18,14 +18,15 @@ assertStatus(404,
 );
 
 
-// SET CONTENT TYPE TO CSS
-$af->contentType('css');
-
-
-// OUTPUT CSS
-echo (new Compiler)->compile(
+// COMPILE SCSS TO CSS
+$css = (new Compiler)->compile(
 	file_get_contents($af->path() . $router->parts['path'])
 );
+
+
+// SET CONTENT TYPE TO CSS, AND OUTPUT IT
+$af->contentType('css');
+echo $css;
 
 
 // EXIT ROUTER
