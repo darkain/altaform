@@ -24,21 +24,21 @@
 
 <script>var urlbase='[afurl.base;safe=js]';</script>
 
-<link rel="stylesheet" type="text/css" href="[style.path;block=link]" />
-<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="[style.path;block=link]" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/dark-hive/jquery-ui.css" />
 
-<link rel="stylesheet" type="text/css" href="[afurl.static]/altaform/af.css" />
-<link rel="stylesheet" type="text/css" href="[afurl.static]/altaform/af-sidebar.css" />
-<link rel="stylesheet" type="text/css" href="[afurl.static]/altaform/button.css" />
-<link rel="stylesheet" type="text/css" href="[afurl.static]/altaform/droplist.css" />
-<link rel="stylesheet" type="text/css" href="[afurl.static]/altaform/jquery-ui-fix.css" />
-<link rel="stylesheet" type="text/css" href="[afurl.static]/altaform/spreadsheet.css" />
+<link rel="stylesheet" href="[afurl.static]/altaform/af.css" />
+<link rel="stylesheet" href="[afurl.static]/altaform/af-sidebar.css" />
+<link rel="stylesheet" href="[afurl.static]/altaform/button.css" />
+<link rel="stylesheet" href="[afurl.static]/altaform/droplist.css" />
+<link rel="stylesheet" href="[afurl.static]/altaform/jquery-ui-fix.css" />
+<link rel="stylesheet" href="[afurl.static]/altaform/spreadsheet.css" />
 
 <link rel="shortcut icon" href="[afurl.static]/favicon.ico" />
 <link rel="apple-touch-icon" href="[afurl.static]/favicon.ico" />
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
 <script src="[afurl.static]/altaform/af.js"></script>
 <script src="[afurl.static]/altaform/af-droplist.js"></script>
