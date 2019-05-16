@@ -44,6 +44,12 @@
 	background:#809AB1;
 }
 
+#af-sidebar-list,
+#af-sidebar-page {
+	scrollbar-color: #809AB1 rgba(0,0,0,0);
+	scrollbar-width: 13px;
+}
+
 
 #af-sidebar-list a,
 #af-sidebar-list span,
