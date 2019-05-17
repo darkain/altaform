@@ -1,0 +1,61 @@
+.print {
+	&-block,
+	&-inline,
+	&-inline-block,
+	&-cell {
+		display:			none;
+	}
+
+	&-show {
+		visibility:			hidden;
+	}
+}
+
+@media print {
+	* {
+		background-color:	white			!important;
+		background-image:	none			!important;
+		color:				black			!important;
+		text-shadow:		none			!important;
+		box-shadow:			none			!important;
+	}
+
+	.no-print {
+		display:			none			!important;
+	}
+
+	.print {
+		&-nobg {
+			background:		transparent		!important;
+		}
+
+		&-noborder {
+			border:			0				!important;
+		}
+
+		&-block {
+			display:		block			!important;
+		}
+
+		&-inline {
+			display:		inline			!important;
+		}
+
+		&-inline-block {
+			display:		inline-block	!important;
+		}
+
+		&-cell {
+			display:		table-cell		!important;
+		}
+
+		&-hide {
+			visibility:		hidden			!important;
+		}
+
+		&-show {
+			visibility:		visible			!important;
+		}
+
+	}
+}

@@ -1,0 +1,7 @@
+.afSpreadsheet {
+	input, select, a {
+		&:focus {
+			background:rgba(200,200,255,0.3);
+		}
+	}
+}

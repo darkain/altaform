@@ -1,0 +1,52 @@
+table {
+	&.af-folder {
+		font-size:0;
+		table-layout:fixed;
+		margin-bottom:15px;
+		width:100%;
+
+		td {
+			font-size:18px;
+			text-align:center;
+			cursor:pointer;
+			color:#005AA4;
+			line-height:2em;
+			padding:0;
+
+			&:hover {
+				box-shadow:0 0 4px #005AA4;
+			}
+
+			&.af-folder-selected {
+				&,
+				& a,
+				& a:hover,
+				& a:active,
+				& a:visited {
+					background:#005AA4;
+					color:#fff;
+				}
+			}
+		}
+
+		span {
+			line-height:0.8em;
+			font-size:0.6em;
+			display:block;
+			margin:-0.5em 0 1em 0;
+		}
+
+		a {
+			color:#005AA4;
+			line-height:2em;
+			display:block;
+			width:100%;
+			height:100%;
+			text-decoration:none;
+
+			&:hover {
+				color:#005AA4;
+			}
+		}
+	}
+}

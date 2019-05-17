@@ -1,0 +1,119 @@
+#gmap-canvas,
+#calendar,
+.jush-php,
+.ui-dialog {
+	&, & * {
+		box-sizing:				content-box;
+	}
+}
+
+
+#popup-window {
+	background:					#f8f8f8;
+	border-top:					1px solid #ccc;
+	padding:					5px;
+	margin:						0;
+
+	* {
+		box-sizing:				border-box;
+	}
+}
+
+
+.af-notice {
+	border:						1px solid #880;
+	background:					#ff0;
+	color:						#000;
+	font-size:					1.5em;
+	margin:						0 0 1em 0;
+	padding:					0.3em;
+	clear:						both;
+	line-height:				1em;
+
+	img {
+		float:					left;
+		margin-right:			5px;
+	}
+}
+
+
+li {
+	&.af-search-item {
+		&.ui-menu-item a,
+		&.ui-state-focus,
+		&.ui-state-focus a {
+			font-size:			20px;
+			border-radius:		0;
+			text-decoration:	none;
+		}
+
+		&.ui-state-focus {
+			background:			#666;
+			color:				#fff;
+		}
+
+		&.ui-menu-item {
+			padding:			3px;
+
+			&:hover a {
+				color:			#000;
+			}
+		}
+
+		&.ui-state-focus {
+			padding:			3px;
+
+			a, &:hover a {
+				color:			#fff;
+			}
+		}
+	}
+}
+
+
+
+body {
+	.ui-tabs-nav {
+		border-radius:			0;
+
+		* {
+			outline-width:		0;
+		}
+	}
+}
+
+
+div {
+	&.ui-widget-overlay {
+		background:				#666;
+	}
+}
+
+
+
+/***************************/
+/*    ALTAFORM WIDGETS     */
+/***************************/
+
+.editbox {
+	padding:					1px;
+	display:					inline-block;
+	border:						0;
+	cursor:						text;
+
+	&:hover {
+		padding:				0;
+		border:					1px solid #888;
+	}
+}
+
+
+.afSpreadsheet {
+	a {
+		display:				block;
+		font-size:				2em;
+		text-decoration:		none;
+		color:					#004c8e;
+		padding:				5px 10px;
+	}
+}

@@ -1,0 +1,161 @@
+html, body {
+	padding:				0;
+	margin:					0;
+	tab-size:				4;
+	color:					#4D4E4C;
+}
+
+p {
+	text-align:				justify;
+}
+
+*:focus {
+	outline-color:			#00C8E6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:			normal;
+	margin:					0;
+
+	img {
+		margin:				0;
+	}
+}
+
+h1 {
+	font-size:				3em;
+	line-height:			1em;
+}
+
+h2 {
+	font-size:				2em;
+	line-height:			1em;
+}
+
+h3 {
+	font-size:				1.5em;
+	line-height:			1em;
+}
+
+h4 {
+	font-size:				1.2em;
+	line-height:			1.25em;
+}
+
+h5 {
+	font-size:				1.1em;
+	font-weight:			bold;
+}
+
+h6 {
+	font-size:				1em;
+	font-weight:			bold;
+}
+
+
+iframe, img {
+	border:					0;
+}
+
+hr {
+	height:					2px;
+	background:				black;
+	color:					black;
+	margin:					0.5em 2em;
+	clear:					both;
+	border:					0;
+}
+
+table {
+	border-spacing:			0;
+	border-collapse:		collapse;
+}
+
+td, th {
+	text-align:				left;
+	vertical-align:			top;
+}
+
+form {
+	padding:				0;
+	margin:					0;
+	border:					0;
+	background:				none;
+}
+
+figure {
+	padding:				0;
+	margin:					0;
+	border:					0;
+	font-size:				1em;
+}
+
+fieldset {
+	border:					2px groove #333;
+	padding:				10px;
+	background:				rgba(127,127,127,0.1);
+	border-radius:			10px;
+}
+
+legend {
+	font-weight:			bold;
+	padding:				0 5px;
+}
+
+input[type=text],
+input[type=password],
+input[type=color],
+input[type=date],
+input[type=datetime-local],
+input[type=email],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=time],
+input[type=url],
+input[type=week],
+textarea,
+select {
+	border:					1px solid #ccc;
+	background:				#fff;
+	color:					#000;
+}
+
+
+article,
+aside,
+dialog,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+	display:				block;
+}
+
+
+a {
+	&, &:link, &:visited, &:active {
+		color:				#C8E600;
+		text-decoration:	none;
+		cursor:				pointer;
+	}
+
+	&:hover {
+		color:				#BB4574;
+	}
+
+	&.nodec, & img {
+		text-decoration:	none;
+	}
+}
+
+
+code {
+	white-space:			pre;
+	display:				block;
+	padding:				3px 15px 3px 5px;
+}

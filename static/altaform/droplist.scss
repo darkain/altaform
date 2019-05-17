@@ -1,0 +1,58 @@
+ul {
+	&.droplist {
+		display:block;
+		overflow:visible;
+		height:1em;
+		list-style-type:none;
+		max-height:500px;
+		width:200px;
+		padding:0;
+		margin:0;
+
+		li {
+			position:relative;
+			padding:1px 3px;
+			cursor:pointer;
+			white-space: nowrap;
+
+			&.unselected {
+				display:none;
+			}
+		}
+
+		.droplist-narrow & {
+			width:100px;
+		}
+	}
+
+	&.droplist_active {
+		background:#1B1B53;
+		z-index:10;
+		position: absolute;
+		height: 200px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		box-shadow:0 0 10px #000;
+
+		li {
+			z-index:11;
+			background:#1B1B53;
+			color:#fff;
+			display:block;
+
+			&.selected {
+				background:#4B4B83;
+			}
+
+			&.unselected {
+				display:block;
+			}
+
+			&:hover {
+				display:block;
+				background:#fff;
+				color:#1B1B53;
+			}
+		}
+	}
+}

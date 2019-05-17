@@ -1,0 +1,60 @@
+table{
+	&.af-debug-backtrace {
+		margin:				1em 0;
+		width:				100%;
+		background:			#fff4f4;
+		color:				#000;
+		white-space:		pre-line;
+
+		* {
+			text-decoration:none;
+			font-variant:	normal;
+			font-weight:	normal;
+			font-style:		normal;
+			font-family:	"Courier New", Courier, monospace;
+		}
+
+		tr {
+			&:hover{
+				background:	#fcc;
+			}
+		}
+
+		th,
+		td {
+			border:			1px solid #fcc;
+			padding:		0.3em 0.5em;
+			vertical-align:	top;
+			text-align:		left;
+		}
+
+		th {
+			white-space:	nowrap;
+		}
+
+		td {
+			white-space:	pre-wrap;
+		}
+	}
+}
+
+
+#af-fatal {
+	h3 {
+		white-space:		pre-line;
+	}
+}
+
+
+.error,
+.warning,
+.error-bg,
+.warning-bg {
+	font-style:				italic;
+	vertical-align:			middle;
+}
+
+.error		{ color:		red; }
+.warning	{ color:		yellow; }
+.error-bg	{ background:	red; }
+.warning-bg	{ background:	yellow; }

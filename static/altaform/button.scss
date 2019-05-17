@@ -1,0 +1,136 @@
+/* CONFIGURE STYLES */
+$text-color:	rgba(0, 0, 0, 0.6);
+
+$blue-top:		#f0f3ff;
+$blue-bottom:	darken($blue-top,			20%);
+$blue-text:		darken($blue-bottom,		55%);
+
+$red:			145%;
+$red-top:		adjust-hue($blue-top,		$red);
+$red-bottom:	adjust-hue($blue-bottom,	$red);
+$red-text:		adjust-hue($blue-text,		$red);
+
+$green:			270%;
+$green-top:		adjust-hue($blue-top,		$green);
+$green-bottom:	adjust-hue($blue-bottom,	$green);
+$green-text:	adjust-hue($blue-text,		$green);
+
+$yellow:		175%;
+$yellow-top:	adjust-hue($blue-top,		$yellow);
+$yellow-bottom:	adjust-hue($blue-bottom,	$yellow);
+$yellow-text:	adjust-hue($blue-text,		$yellow);
+
+$purple:		50%;
+$purple-top:	adjust-hue($blue-top,		$purple);
+$purple-bottom:	adjust-hue($blue-bottom,	$purple);
+$purple-text:	adjust-hue($blue-text,		$purple);
+
+
+
+/* MAIN BUTTON STYLING */
+button,
+.button,
+.button:link,
+.button:visited,
+#popup-window .ui-button,
+input[type=submit],
+input[type=button],
+input[type=reset],
+input[type=file] {
+	background:				linear-gradient(to bottom, #ffffff 0%,#ededed 100%);
+	border:					1px solid rgba(0, 0, 0, 0.1);
+	border-radius:			3px;
+	color:					$text-color;
+	cursor:					pointer;
+	font-family:			Arial, Tahoma, Verdana, sans-serif;
+	font-weight:			normal;
+	font-size:				12px;
+	line-height:			20px;
+	outline:				none;
+	padding:				4px 6px;
+	text-align:				center;
+	text-decoration:		none;
+	line-height:			14px;
+	text-shadow:			0 0 2px #fff;
+
+	&:hover {
+		box-shadow:			0 0 5px rgba(0, 0, 0, 0.3);
+	}
+
+	&:hover, &:active {
+		outline:			none;
+		text-decoration:	none;
+		opacity:			0.8;
+	}
+
+	svg {
+		filter:				drop-shadow(0 0 3px #fff);
+		width:				1em;
+		height:				1em;
+		vertical-align:		middle;
+
+		path {
+			fill:			$text-color;
+		}
+	}
+
+	&:after {
+		clear:				both;
+		visibility:			hidden;
+		display:			none;
+		font-size:			0;
+		content:			" ";
+		height:				0;
+		border:				0;
+		padding:			0;
+		margin:				0;
+	}
+}
+
+
+
+/* COLOURFUL BUTTONS */
+.button {
+
+	.blue&, .blue&:visited {
+		background: linear-gradient(to bottom, $blue-top 0%, $blue-bottom 100%);
+		color: $blue-text;
+		svg path { fill: $blue-text; }
+	}
+
+	.red&, .red&:visited {
+		background: linear-gradient(to bottom, $red-top 0%, $red-bottom 100%);
+		color: $red-text;
+		svg path { fill: $red-text; }
+	}
+
+	.yellow&, .yellow&:visited {
+		background: linear-gradient(to bottom, $yellow-top 0%, $yellow-bottom 100%);
+		color: $yellow-text;
+		svg path { fill: $yellow-text; }
+	}
+
+	.green&, .green&:visited {
+		background: linear-gradient(to bottom, $green-top 0%, $green-bottom 100%);
+		color: $green-text;
+		svg path { fill: $green-text; }
+	}
+
+	.purple&, .purple&:visited {
+		background: linear-gradient(to bottom, $purple-top 0%, $purple-bottom 100%);
+		color: $purple-text;
+		svg path { fill: $purple-text; }
+	}
+}
+
+
+
+/* JQUERY UI FIXES */
+button .ui-button-text-only .ui-button-text {
+	padding:	0;
+	margin:		0;
+}
+
+button.ui-state-default {
+	background:	inherit;
+}
