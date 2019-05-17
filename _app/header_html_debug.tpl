@@ -27,12 +27,17 @@
 <link rel="stylesheet" href="[style.path;block=link]" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/dark-hive/jquery-ui.css" />
 
-<link rel="stylesheet" href="[afurl.static]/altaform/af.css" />
-<link rel="stylesheet" href="[afurl.static]/altaform/af-sidebar.css" />
-<link rel="stylesheet" href="[afurl.static]/altaform/button.css" />
-<link rel="stylesheet" href="[afurl.static]/altaform/droplist.css" />
-<link rel="stylesheet" href="[afurl.static]/altaform/jquery-ui-fix.css" />
-<link rel="stylesheet" href="[afurl.static]/altaform/spreadsheet.css" />
+<link rel="stylesheet" href="[afurl.static]/altaform/elements.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/styles.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/debug.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/print.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/af.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/af-folder.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/af-sidebar.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/button.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/droplist.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/jquery-ui-fix.scss" />
+<link rel="stylesheet" href="[afurl.static]/altaform/spreadsheet.scss" />
 
 <link rel="shortcut icon" href="[afurl.static]/favicon.ico" />
 <link rel="apple-touch-icon" href="[afurl.static]/favicon.ico" />
