@@ -51,28 +51,52 @@
 	max-height:100%;
 	overflow-x:hidden;
 	overflow-y:auto;
-	display:none;
+	display:block;
 
 	* {
 		user-select:none;
-	}
-
-	&:hover {
-		overflow-y:auto;
 	}
 
 	&::-webkit-scrollbar-thumb {
 		@extend %scroll-bar;
 	}
 
+	.af-sidebar-open {
+		&>a, &>span, &>div>span {
+			height:40px;
+		}
+
+		&>hr {
+			height:1px;
+		}
+	}
+
+	.af-sidebar-closed {
+		& a, & span, & hr {
+			height:0;
+		}
+	}
+
+	/* ROOT ELEMENTS ALWAYS VISIBLE */
+	&>div>span {
+		height:40px !important;
+	}
+
 	a, span, hr {
 		color:#fff;
 		font-size:20px;
-		height:40px;
+		height:0px;
 		cursor:pointer;
 		display:block;
 		line-height:2em;
 		padding:0 0 0 10px;
+
+		overflow:hidden;
+
+	}
+
+	a, span, hr, div {
+		transition: height 0.4s ease, background 0.4s ease;
 	}
 
 	a, span {
@@ -114,7 +138,7 @@
 		background:rgba(255,255,255,0.2);
 		margin:0 0 0 30px;
 		padding:0;
-		height:1px;
+		height:0;
 	}
 
 	i {
