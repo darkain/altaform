@@ -155,6 +155,7 @@ var af_sidebar_init = function(path, auto) {
 			parent.removeClass('af-sidebar-open');
 			parent.addClass('af-sidebar-closed');
 		}
+	});
 
 
 	//OPEN EACH MENU FROM LOCAL STORAGE INFORMATION
