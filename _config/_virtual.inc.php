@@ -4,7 +4,7 @@
 //BASIC CONFIGURATION FOR WEB SERVER
 $afconfig([
 	'root'			=> '_app',
-
+	'debug'			=> true,
 
 	/*
 	//PHP Universal Database Library (PUDL)

@@ -15,6 +15,7 @@ $static	= $af->staticPath();
 //SET THE CONTENT TYPE TO TEXT
 ////////////////////////////////////////////////////////////////////////////////
 $af->contentType('txt');
+print("Processing Assets\n\n");
 
 
 
@@ -23,7 +24,7 @@ $af->contentType('txt');
 //INCLUDE ALL THE THINGS!!
 ////////////////////////////////////////////////////////////////////////////////
 use MatthiasMullie\Minify;
-use Leafo\ScssPhp\Compiler;
+use ScssPhp\ScssPhp\Compiler;
 require_once('_pathconvert/src/ConverterInterface.php');
 require_once('_pathconvert/src/Converter.php');
 require_once('_minify/src/Minify.php');
@@ -37,6 +38,7 @@ require_once('_scss/scss.inc.php');
 ////////////////////////////////////////////////////////////////////////////////
 //LOAD DATA FOR CSS AND JS MINIFIER
 ////////////////////////////////////////////////////////////////////////////////
+print("Parsing:\t" . $root . "/header_html_debug.tpl\n\n");
 $data = file_get_contents($root.'/header_html_debug.tpl');
 
 
@@ -56,11 +58,13 @@ foreach ($matches as $match) {
 		if (substr($item, 0, 15) !== '[afurl.static]/') continue;
 		$item = $static . substr($item, 15);
 
+		print("Loading:\t" . $item . "\n");
+
 		$text = @file_get_contents($item);
-		if ($text === false) httpError(500, 'Cannot open file: ' . $item);
+		if ($text === false) \af\error(500, 'Cannot open file: ' . $item);
 
 		if (substr($item, -5) === '.scss') {
-			$text = (new Compiler)->compile($text);
+			$text = (new Compiler)->compileString($text)->getCss();
 		}
 
 		$text = (new Minify\CSS($text))->minify();
@@ -77,7 +81,9 @@ file_put_contents($static.'css/altaform.css', $out);
 file_put_contents($static.'css/altaform.css.gz', gzencode($out,9));
 
 $md5 = md5($out);
-echo $static.'css/altaform.css - ' . $md5 . "\n";
+print("\nBuilding:\t");
+print($static . 'css/altaform.css');
+print("\nMD5 Hash:\t" . $md5 . "\n\n");
 
 $af->setting('af.hash.css', $md5);
 
@@ -101,8 +107,10 @@ foreach ($matches as $match) {
 		if (strpos($item, 'jquery-ui.min.js') !== false) continue;
 		if (preg_match('/jquery-\d\.\d\.\d\.min\.js/', $item)) continue;
 
+		print("Loading:\t" . $item . "\n");
+
 		$text = @file_get_contents($item);
-		if ($text === false) httpError(500, 'Cannot open file: ' . $item);
+		if ($text === false) \af\error(500, 'Cannot open file: ' . $item);
 
 		$line = preg_split('/\n|\r/', trim($text));
 		if (trim($line[0]) === "'use strict';") {
@@ -132,6 +140,8 @@ file_put_contents($static.'js/altaform.js', $out);
 file_put_contents($static.'js/altaform.js.gz', gzencode($out,9));
 
 $md5 = md5($out);
-echo $static.'js/altaform.js - ' . $md5 . "\n";
+print("\nBuilding:\t");
+print($static . 'js/altaform.js');
+print("\nMD5 Hash:\t" . $md5 . "\n\n");
 
 $af->setting('af.hash.js', $md5);

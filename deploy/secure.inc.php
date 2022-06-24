@@ -26,7 +26,7 @@ $token	= $get->string('token');
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY ALGORITHM EXISTS
 ////////////////////////////////////////////////////////////////////////////////
-assertStatus(500,
+\af\affirm(500,
 	in_array($algo, hash_algos(), true),
 	'Algorithm not supported: ' . $algo
 );
@@ -38,7 +38,7 @@ assertStatus(500,
 //VERIFY MINIMUM SECURITY STRENGTH FOR HASH ALGORITHM
 ////////////////////////////////////////////////////////////////////////////////
 if (!empty($af->config->github['strength'])) {
-	assertStatus(500,
+	\af\affirm(500,
 		strlen(hash($algo, '')) * 4  >=  $af->config->github['strength'],
 		'Hash Algorithm does not meet minimum security strength requirements'
 	);
@@ -50,7 +50,7 @@ if (!empty($af->config->github['strength'])) {
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY TIME IS WITHIN CONSTRAINT
 ////////////////////////////////////////////////////////////////////////////////
-assertStatus(422,
+\af\affirm(422,
 	abs($time - $af->time()) < (AF_MINUTE*5),
 	'Time drift is too large. Possible replay attack!'
 );
@@ -63,7 +63,7 @@ assertStatus(422,
 ////////////////////////////////////////////////////////////////////////////////
 $message = implode('-', [$time, $token]);
 
-assertStatus(422,
+\af\affirm(422,
 	hash_equals(hash_hmac($algo, $message, $afconfig->afkey()), $hash),
 	'Invalid token for request. Possible hacking attempt!'
 );

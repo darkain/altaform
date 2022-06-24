@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY WE HAVE A BRANCH SELECTED
 ////////////////////////////////////////////////////////////////////////////////
-assertStatus(500,
+\af\affirm(500,
 	!empty($af->config->github['branch']),
 	'No GitHub branch has been defined - $afconfig["github"]["branch"]'
 );
@@ -15,7 +15,7 @@ assertStatus(500,
 ////////////////////////////////////////////////////////////////////////////////
 //VERIFY WE HAVE A BRANCH SELECTED
 ////////////////////////////////////////////////////////////////////////////////
-assertStatus(500,
+\af\affirm(500,
 	!empty($af->config->github['path']),
 	'No local git repository path specified - $afconfig["github"]["path"]'
 );
@@ -53,8 +53,8 @@ $commands = [
 	'git stash',
 	'git pull origin ' . $af->config->github['branch'],
 	'git status',
-	'git submodule sync',
-	'git submodule update --force --remote',
+	'git submodule init',
+	'git submodule update',
 	'git submodule status',
 ];
 
