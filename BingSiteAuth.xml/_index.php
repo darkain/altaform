@@ -2,7 +2,7 @@
 
 
 if (empty($afconfig->bing['auth'])) {
-	error404();
+	\af\error(404);
 }
 
 

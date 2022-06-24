@@ -8,6 +8,7 @@
 /bing*
 Thumbs.db
 *.sublime-workspace
+.DS_Store?
 
 
 # Application ignore list
