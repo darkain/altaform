@@ -22,3 +22,6 @@
 	path = _pathconvert
 	url = https://github.com/matthiasmullie/path-converter.git
 
+[submodule "_scss"]
+	path = _scss
+	url = git@github.com:scssphp/scssphp.git
