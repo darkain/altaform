@@ -18,6 +18,7 @@ $afconfig([
 		//'redis'		=>	'local.redis.server',
 		//'hash'		=>	'REPLACE WITH A RANDOM STING',
 		'session'		=>	true,
+		'altaform'		=>	true,
 	],
 	*/
 ]);
