@@ -9,6 +9,7 @@ $afconfig([
 	/*
 	//PHP Universal Database Library (PUDL)
 	'pudl'				=>	[
+		'type'			=>	'mariadb',
 		'server'		=>	'local.database.server',
 		'database'		=>	'MyDatabase',
 		'username'		=>	'User',
@@ -16,6 +17,7 @@ $afconfig([
 		//'prefix'		=>	'prefix_',
 		//'redis'		=>	'local.redis.server',
 		//'hash'		=>	'REPLACE WITH A RANDOM STING',
+		'session'		=>	true,
 	],
 	*/
 ]);
