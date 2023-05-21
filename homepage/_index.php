@@ -1,5 +1,5 @@
 <?php
 
-$title = 'Home';
+$af->title = 'Home';
 
 $af->renderPage('_index.tpl');
