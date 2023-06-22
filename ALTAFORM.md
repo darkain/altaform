@@ -23,16 +23,17 @@ repository for licensing information.
 ### PHP Compatibility
 
 Altaform is compatible with both modern and legacy PHP. Altaform is actively
-tested on PHP 5.4 through 5.6, and PHP 7.0 through 7.3, plus PHP-Nightly.
-Legacy PHP support is maintained to help act as a migration path for legacy PHP
-code bases to move forward to modern PHP. By supporting both, legacy code can
-be refactored into the Altaform framework while continuing to run on a legacy
-PHP server. Once refactoring is complete, servers can be migrated from legacy
-5.x to 7.x with minimal effort. For new development, the latest PHP version is
-always recommended. Due to the bleeding edge development of Altaform, not all
-features are guaranteed to function properly on older PHP builds, as we've
-personally discovered countless bugs in the PHP interpreter and have helped to
-resolve these issues. Many of these bug fixes were never back-ported.
+tested on PHP 5.4 through 5.6, PHP 7.0 through 7.4, and PHP 8.0 through 8.2,
+plus PHP-Nightly. Legacy PHP support is maintained to help act as a migration
+path for legacy PHP code bases to move forward to modern PHP. By supporting
+both, legacy code can be refactored into the Altaform framework while
+continuing to run on a legacy PHP server. Once refactoring is complete,
+servers can be migrated from legacy 5.x to 7.x with minimal effort. For new
+development, the latest PHP version is always recommended. Due to the bleeding
+edge development of Altaform, not all features are guaranteed to function
+properly on older PHP builds, as we've personally discovered countless bugs in
+the PHP interpreter and have helped to resolve these issues. Many of these bug
+fixes were never back-ported.
 
 ### HHVM Compatibility
 
@@ -41,9 +42,8 @@ Altaform treated HHVM as a first-class citizen for many years and was the
 primary development target of the time. However, since the rise of PHP 7.x,
 performance limitations of PHP are no longer an issue, and Altaform often
 performs significantly better on PHP 7.x than on any HHVM version. HHVM team
-has announced that they plan to deprecate their PHP compatibility layer after
-HHVM version 3.30, so this will be the final version supported by Altaform.
-At this time, all HHVM users are encouraged to transition to PHP 7.x.
+has announced that their PHP compatibility layer is deprecated after
+HHVM version 3.30, so this was the final version supported by Altaform.
 
 ## Getting Started
 
