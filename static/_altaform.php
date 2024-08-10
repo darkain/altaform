@@ -6,9 +6,13 @@ use ScssPhp\ScssPhp\Compiler;
 require_once('_scss/scss.inc.php');
 
 
-// ONLY ALLOW .SCSS FILES
+$ext = pathinfo($router->parts['path'], PATHINFO_EXTENSION);
+
+
+// ONLY ALLOW .JS .CSS .SCSS .SVG FILES
+// TODO: HAVE LIST OPTIONALLY SET VIA ALTAFORM DATABASE CONFIG
 \af\affirm(404,
-	substr($router->parts['path'], -5) === '.scss'
+	in_array($ext, ['js', 'css', 'scss', 'svg'], true)
 );
 
 
@@ -19,14 +23,21 @@ require_once('_scss/scss.inc.php');
 
 
 // COMPILE SCSS TO CSS
-$css = (new Compiler)->compileString(
-	file_get_contents($af->path() . $router->parts['path'])
-)->getCss();
+if ($ext === 'scss') {
+	$scss = (new Compiler)->compileString(
+		file_get_contents($af->path() . $router->parts['path'])
+	)->getCss();
+
+	// SET CONTENT TYPE TO CSS, AND OUTPUT IT
+	$af->contentType('css');
+	echo $scss;
 
 
-// SET CONTENT TYPE TO CSS, AND OUTPUT IT
-$af->contentType('css');
-echo $css;
+// STREAM FILE AS-IS IF NOT SCSS
+} else {
+	$af->contentType($ext);
+	readfile($af->path() . $router->parts['path']);
+}
 
 
 // EXIT ROUTER
