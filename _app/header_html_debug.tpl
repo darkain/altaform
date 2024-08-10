@@ -25,7 +25,7 @@
 <script>var urlbase='[afurl.base;safe=js]';</script>
 
 <link rel="stylesheet" href="[style.path;block=link]" />
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/dark-hive/jquery-ui.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/dark-hive/jquery-ui.css" />
 
 <link rel="stylesheet" href="[afurl.static]/altaform/elements.scss" />
 <link rel="stylesheet" href="[afurl.static]/altaform/styles.scss" />
@@ -42,8 +42,8 @@
 <link rel="shortcut icon" href="[afurl.static]/favicon.ico" />
 <link rel="apple-touch-icon" href="[afurl.static]/favicon.ico" />
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
 
 <script src="[afurl.static]/altaform/af.js"></script>
 <script src="[afurl.static]/altaform/af-droplist.js"></script>
